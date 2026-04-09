@@ -7,6 +7,72 @@
     <link rel="icon" type="image/x-icon" href="Media/pfp.png">
     <link rel="stylesheet" href="bluesky-feed.css">
     <style>
+        .info {
+            margin: auto;
+            background-color: #f0f0ff;
+            padding: 10px;
+            position: relative;
+        }
+
+
+        .info-separator {
+            border-top: 1px solid #bdb6d6;
+            margin: 4px 0;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 1em;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #493478;
+            text-align: left;
+        }
+
+        .info-value {
+            text-align: right;
+        }
+
+        .info-title {
+            background: rgb(166, 166, 238);
+            margin: 0 -10px 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 6px 0;
+            text-align: center;
+        }
+
+        .profile-title {
+            text-align: center;
+            font-family: BarlosiusEdged, Arial, sans-serif;
+            font-size: 1.3em;
+            color: #493478;
+            text-shadow: 2px 2px #7b5d92;
+            background: rgb(166, 166, 238);
+            padding: 4px 0 4px 0;
+            border-top: 2px solid #493478;
+            border-left: 2px solid #493478;
+            border-right: 2px solid #493478;
+            border-bottom: 2px solid #493478;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .profile-pic {
+            background-color: #000080;
+            width: 100% !important;
+            position: relative;
+            height: 0;
+            padding-bottom: 100%;
+            border-left: 2px solid #493478;
+            border-right: 2px solid #493478;
+            border-bottom: 2px solid #493478;
+        }
+
         /*
         ..................................................
         ...............-+-+++##+++++--....................
@@ -276,7 +342,6 @@
             position: relative;
             height: 0;
             padding-bottom: 100%;
-            box-shadow: 0 0 0 2px rgb(0, 0, 0);
         }
 
         .profile-pic img {
@@ -782,8 +847,6 @@
                 height: 260px;
                 margin: 0 auto;
                 position: relative;
-                background-color: #000080;
-                box-shadow: 0 0 0 2px rgb(0, 0, 0);
             }
 
             .profile-pic img {
@@ -913,25 +976,33 @@
             <div class="sidebar-left">
                 <div class="sidebar">
                     <div class="info">
+                        <div class="profile-title">Madsplooshie</div>
                         <div class="profile-pic">
                             <img src="Media/pfp.png" alt="Madsplooshie">
                         </div>
-                        <h3>- Info -</h3>
-                        <div class="separatorborder"></div>
+                        <h3 class="info-title">- Bio Info -</h3>
+                        <div class="info-row">
+                            <span class="info-label">Especie</span>
+                            <span class="info-value">Goblin</span>
+                        </div>
+                        <div class="info-separator"></div>
+                        <div class="info-row" id="birthday-row">
+                            <span class="info-label">Cumpleaños</span>
+                            <span class="info-value" id="birthday-value"></span>
+                        </div>
+                        <div class="info-separator"></div>
+                        <div class="info-row">
+                            <span class="info-label">Genero</span>
+                            <span class="info-value">Chica trans</span>
+                        </div>
                         <script>
                             var bday = new Date('01/06/1995');
                             var today = new Date();
-
                             var diffInMilliSeconds = today.getTime() - bday.getTime();
                             var diffInYears = diffInMilliSeconds / 1000 / 60 / 60 / 24 / 365.25;
-
                             var returnbday = Math.abs(Math.floor(diffInYears));
-
-                            var p = document.createElement("p");
-                            p.textContent = "Cumpleaños: 6 de Enero (" + returnbday + ")";
-                            document.querySelector(".info").appendChild(p);
+                            document.getElementById("birthday-value").textContent = "6 de Enero (" + returnbday + " años)";
                         </script>
-                        <p>Genero: Chica trans</p>
                     </div>
                 </div>
                 <iframe src="https://discord.com/widget?id=1428211113769570316&theme=dark" width=100% height="500"
