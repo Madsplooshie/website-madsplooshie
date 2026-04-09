@@ -5,9 +5,6 @@
 }
 
 .bluesky-feed {
-    background-image: url(Media/cells-bg.png);
-    background-repeat: repeat;
-    background-color: #f0f0ff;
     padding: 15px;
     border: 2px dashed black;
     border-radius: 0;
