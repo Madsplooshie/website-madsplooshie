@@ -1,0 +1,75 @@
+/* Bluesky Feed Styles */
+.bluesky-feed-container {
+    width: 100%;
+}
+
+.bluesky-feed {
+    background-color: #f0f0ff;
+    padding: 15px;
+    border: 2px dashed black;
+    background-image: url(Media/cells-bg.png);
+    background-repeat: repeat;
+}
+
+.bluesky-feed h2 {
+    font-family: RubikDistressed;
+    color: rgb(0, 128, 145);
+    text-align: center;
+    margin-top: 0;
+}
+
+.feed-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feed-post {
+    background-color: #ffffff;
+    padding: 12px;
+    border-left: 3px solid #73d0ff;
+    border-radius: 2px;
+}
+
+.feed-post a {
+    color: var(--text-accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.feed-post a:hover {
+    text-decoration: underline;
+    color: #73d0ff;
+}
+
+.feed-post strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.post-date {
+    font-size: 0.85em;
+    color: #888;
+    margin: 4px 0;
+    font-style: italic;
+}
+
+.post-content {
+    margin: 8px 0 0 0;
+    line-height: 1.4;
+    color: #333;
+}
+
+@media (max-width: 900px) {
+    .bluesky-feed {
+        padding: 12px;
+    }
+
+    .feed-post {
+        padding: 10px;
+    }
+
+    .post-content {
+        font-size: 0.95em;
+    }
+}
