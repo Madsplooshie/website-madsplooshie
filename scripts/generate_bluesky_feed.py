@@ -106,14 +106,12 @@ def generate_html(posts):
 
             html += f'''            <div class="feed-post">
                 <div class="post-header">
-                    <a href="{post['link']}" target="_blank" rel="noopener noreferrer" class="post-title">
-                        {post['title'] if post['title'] else "Untitled Post"}
-                    </a>
+                    <span class="post-title">Nueva publicación de Bluesky</span>
                     <span class="post-date">{formatted_date}</span>
                 </div>
                 <p class="post-content">{post['description']}</p>
                 <a href="{post['link']}" target="_blank" rel="noopener noreferrer" class="read-more">
-                    Read on Bluesky →
+                    Leer en Bluesky →
                 </a>
             </div>
 '''
