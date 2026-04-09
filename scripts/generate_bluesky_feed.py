@@ -83,7 +83,7 @@ def generate_html(posts):
     """Generate HTML for the feed"""
     html = '''<div class="bluesky-feed-container">
     <div class="bluesky-feed">
-        <h2><img src="../Media/SVGs/bluesky.svg" alt="Bluesky" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Posts de Bluesky</h2>
+        <h2><img src="/Media/SVGs/bluesky.svg" alt="Bluesky" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Posts de Bluesky</h2>
         <div class="feed-posts">
 '''
 
@@ -126,7 +126,7 @@ def generate_html(posts):
     html += '''        </div>
         <div class="feed-footer">
             <a href="https://bsky.app/profile/madsplooshie.neocities.org" target="_blank" class="follow-link">
-                Siganme en Bluesky! <img src="../Media/SVGs/bluesky.svg" alt="Bluesky" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 4px;">
+                Siganme en Bluesky! <img src="/Media/SVGs/bluesky.svg" alt="Bluesky" style="width: 16px; height: 16px; vertical-align: middle; margin-left: 4px;">
             </a>
         </div>
     </div>
@@ -143,7 +143,7 @@ def main():
         # Generate fallback HTML
         html = '''<div class="bluesky-feed-container">
     <div class="bluesky-feed">
-        <h2><img src="../Media/SVGs/bluesky.svg" alt="Bluesky" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Latest from Bluesky</h2>
+        <h2><img src="/Media/SVGs/bluesky.svg" alt="Bluesky" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Latest from Bluesky</h2>
         <div class="feed-posts">
             <div class="feed-post">
                 <p><em>Unable to load feed right now. 🌸</em></p>
