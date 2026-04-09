@@ -302,6 +302,87 @@
             margin: 5px auto 10px;
         }
 
+        .portable-infobox {
+            background: linear-gradient(180deg, rgba(248, 248, 255, 0.96), rgba(241, 241, 255, 1));
+            border: 1px solid rgba(0, 0, 0, 0.16);
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            padding: 12px;
+            margin-top: 16px;
+            color: var(--text-primary);
+            font-family: Arial, sans-serif;
+        }
+
+        .portable-infobox .pi-title {
+            margin: 0 0 12px;
+            padding: 12px 10px;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            color: #1f1f52;
+            background: rgba(115, 208, 255, 0.14);
+            border-radius: 10px;
+            letter-spacing: 0.03em;
+        }
+
+        .portable-infobox .pi-image {
+            margin: 0 auto 14px;
+            text-align: center;
+        }
+
+        .portable-infobox .pi-image img {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+        }
+
+        .portable-infobox .pi-group {
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            margin-top: 12px;
+            padding-top: 12px;
+        }
+
+        .portable-infobox .pi-header {
+            margin: 0 0 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #2e2e70;
+            background: rgba(115, 208, 255, 0.14);
+            padding: 6px 8px;
+            border-radius: 8px;
+        }
+
+        .portable-infobox .pi-data {
+            margin-bottom: 10px;
+        }
+
+        .portable-infobox .pi-data-label {
+            margin: 0 0 4px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #40407c;
+        }
+
+        .portable-infobox .pi-data-value {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: #1f1f38;
+        }
+
+        .portable-infobox .pi-data-value a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .portable-infobox .pi-data-value small {
+            color: #5e5e8c;
+            font-size: 0.82rem;
+        }
+
         .extras {
             margin: auto;
             background-color: #f0f0ff;
@@ -918,6 +999,43 @@
                         </div>
                         <h3>- Info -</h3>
                         <div class="separatorborder"></div>
+                        <aside role="region" class="portable-infobox">
+                            <h2 class="pi-title">Denji</h2>
+                            <figure class="pi-image">
+                                <img src="https://static.wikia.nocookie.net/chainsaw-man/images/b/b0/Denji_Reze_Arc_anime_design.png/revision/latest/scale-to-width-down/268?cb=20250324010006"
+                                    alt="Denji Anime">
+                            </figure>
+                            <section class="pi-group">
+                                <h2 class="pi-header">Name</h2>
+                                <div class="pi-data">
+                                    <h3 class="pi-data-label">Japanese</h3>
+                                    <div class="pi-data-value">デンジ</div>
+                                </div>
+                                <div class="pi-data">
+                                    <h3 class="pi-data-label">Romaji</h3>
+                                    <div class="pi-data-value"><em>Denji</em></div>
+                                </div>
+                                <div class="pi-data">
+                                    <h3 class="pi-data-label">Alias(es)</h3>
+                                    <div class="pi-data-value">Chainsaw Man<br>Lord Chainsaw</div>
+                                </div>
+                            </section>
+                            <section class="pi-group">
+                                <h2 class="pi-header">Biological Information</h2>
+                                <div class="pi-data">
+                                    <h3 class="pi-data-label">Species</h3>
+                                    <div class="pi-data-value">Human / Hybrid</div>
+                                </div>
+                                <div class="pi-data">
+                                    <h3 class="pi-data-label">Gender</h3>
+                                    <div class="pi-data-value">Male</div>
+                                </div>
+                                <div class="pi-data">
+                                    <h3 class="pi-data-label">Age</h3>
+                                    <div class="pi-data-value">16 / 17</div>
+                                </div>
+                            </section>
+                        </aside>
                         <script>
                             var bday = new Date('01/06/1995');
                             var today = new Date();
@@ -928,10 +1046,10 @@
                             var returnbday = Math.abs(Math.floor(diffInYears));
 
                             var p = document.createElement("p");
-                            p.textContent = "Age: " + returnbday;
+                            p.textContent = "Cumpleaños: 6 de Enero (" + returnbday + ")";
                             document.querySelector(".info").appendChild(p);
                         </script>
-                        <p>TBD.</p>
+                        <p>Genero: Mujer trans</p>
                     </div>
                 </div>
                 <iframe src="https://discord.com/widget?id=1428211113769570316&theme=dark" width=100% height="500"
@@ -1130,82 +1248,60 @@
                             <li>
                                 <a href="https://bsky.app/profile/madsplooshie.neocities.org">
                                     <div class="svg-bluesky"></div>
-                                    &nbsp;BlueSky
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/madsplooshie/">
-                                    <div class="svg-instagram"></div>
-                                    &nbsp;Instagram
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/@MadsplooshieVODs">
-                                    <div class="svg-youtube"></div>
-                                    &nbsp;YouTube VODs
-                                </a>
-                            </li>
-                        </ul>
+                                    <script>
+                                        var bday = new Date('01/06/1995');
+                                        var today = new Date();
+
+                                        var diffInMilliSeconds = today.getTime() - bday.getTime();
+                                        var diffInYears = diffInMilliSeconds / 1000 / 60 / 60 / 24 / 365.25;
+
+                                        var returnbday = Math.abs(Math.floor(diffInYears));
+
+                                        var p = document.createElement("p");
+                                        p.textContent = "Cumpleaños: 6 de Enero (" + returnbday + ")";
+                                        document.querySelector(".info").appendChild(p);
+                                    </script>
+                                    <p>Genero: Mujer trans</p>
+
+
                     </div>
                 </div>
-                <div class="sidebar">
-                    <div class="extras">
-                        <ul>
-                            <li><img src="Media/Badges/Badges/evangelion.png" alt="Evangelion"></li>
-                        </ul>
-                        <br>
-                        <ul>
-                            <li><img src="Media/Badges/Blinkies/borntodie1.gif" class="blinkies" alt="Born to die"></li>
-                            <li><img src="Media/Badges/Blinkies/borntodie2.gif" class="blinkies" alt="Born to die"></li>
-                            <li><img src="Media/Badges/Blinkies/borntodie3.gif" class="blinkies" alt="Born to die"></li>
-                            <li><img src="Media/Badges/Blinkies/borntodie4.gif" class="blinkies" alt="Born to die"></li>
-                            <li><img src="Media/Badges/Blinkies/borntodie5.gif" class="blinkies" alt="Born to die"></li>
-                        </ul>
-                    </div>
+
+                <div class="footer">
+                    &copy; 2025 Madsplooshie | <a href="mailto:madsplooshie@gmail.com">Contact Me</a>
                 </div>
-            </div>
-        </div>
 
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var isPhone = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+                            || window.matchMedia('(max-width: 900px)').matches;
 
+                        if (isPhone) {
+                            document.body.classList.add('phone');
 
-    </div>
-    </div>
+                            var alertBar = document.createElement('div');
+                            alertBar.className = 'mobile-alert';
+                            alertBar.textContent = 'Phone detected: loading the Y2K mobile layout for the best handheld experience.';
+                            document.body.appendChild(alertBar);
 
-    <div class="footer">
-        &copy; 2025 Madsplooshie | <a href="mailto:madsplooshie@gmail.com">Contact Me</a>
-    </div>
+                            setTimeout(function () {
+                                alertBar.style.display = 'none';
+                            }, 8000);
+                        }
+                    });
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var isPhone = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-                || window.matchMedia('(max-width: 900px)').matches;
-
-            if (isPhone) {
-                document.body.classList.add('phone');
-
-                var alertBar = document.createElement('div');
-                alertBar.className = 'mobile-alert';
-                alertBar.textContent = 'Phone detected: loading the Y2K mobile layout for the best handheld experience.';
-                document.body.appendChild(alertBar);
-
-                setTimeout(function () {
-                    alertBar.style.display = 'none';
-                }, 8000);
-            }
-        });
-
-        // Load Bluesky feed
-        fetch('bluesky-feed.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('bluesky-feed-wrapper').innerHTML = html;
-            })
-            .catch(error => {
-                document.getElementById('bluesky-feed-wrapper').innerHTML =
-                    '<p><em>Unable to load Bluesky feed. Check back later!</em></p>';
-                console.error('Error loading Bluesky feed:', error);
-            });
-    </script>
+                    // Load Bluesky feed
+                    fetch('bluesky-feed.html')
+                        .then(response => response.text())
+                        .then(html => {
+                            document.getElementById('bluesky-feed-wrapper').innerHTML = html;
+                        })
+                        .catch(error => {
+                            document.getElementById('bluesky-feed-wrapper').innerHTML =
+                                '<p><em>Unable to load Bluesky feed. Check back later!</em></p>';
+                            console.error('Error loading Bluesky feed:', error);
+                        });
+                </script>
 </body>
 
 </html>
