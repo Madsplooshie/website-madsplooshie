@@ -1021,7 +1021,25 @@
                                 <div class="content-box2">
                                     <div>
                                         <h1>Hi</h1>
-                                        <p>this is a test</p>
+                                        <!-- Add CSS in <head> -->
+                                        <link rel="stylesheet" href="bluesky-feed.css">
+                                        
+                                        <!-- Add feed container where you want it displayed -->
+                                        <div class="contentbar">
+                                            <div class="iframe-section">
+                                                <div class="content" id="bluesky-feed-wrapper">
+                                                    <p>Loading your latest Bluesky posts...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Add script to load feed -->
+                                        <script>
+                                            fetch('bluesky-feed.html')
+                                                .then(r => r.text())
+                                                .then(html => document.getElementById('bluesky-feed-wrapper').innerHTML = html)
+                                                .catch(e => console.error('Feed error:', e));
+                                        </script>
                                     </div>
                                 </div>
                                 <div class="content-box2">
