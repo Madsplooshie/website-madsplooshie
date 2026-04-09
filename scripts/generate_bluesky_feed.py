@@ -128,7 +128,7 @@ def generate_html(posts):
     html += '''        </div>
         <div class="feed-footer">
             <a href="https://bsky.app/profile/madsplooshie.neocities.org" target="_blank" class="follow-link">
-                Follow me on Bluesky! 🦋
+                Siganme en Bluesky! 🦋
             </a>
         </div>
     </div>
