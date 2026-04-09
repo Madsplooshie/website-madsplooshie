@@ -2,8 +2,8 @@ name: Update Bluesky Feed
 
 on:
   schedule:
-    # Runs every 2 hours - adjust as needed
-    - cron: '0 */2 * * *'
+    # Runs every 5 minutes - adjust as needed
+    - cron: '*/5 * * * *'
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
