@@ -5,6 +5,7 @@
 }
 
 .bluesky-feed {
+    background-color: rgba(240, 240, 255, 0.95);
     padding: 15px;
     border: 2px dashed black;
     border-radius: 0;

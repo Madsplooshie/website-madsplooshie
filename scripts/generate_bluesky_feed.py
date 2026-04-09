@@ -2,6 +2,7 @@
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from email.utils import parsedate_to_datetime
 from html import escape
 import json
 
@@ -62,6 +63,14 @@ def parse_rss(rss_content):
                 'description': escape(description.strip())
             })
 
+        # Ensure newest posts appear first
+        def parse_date(date_str):
+            try:
+                return parsedate_to_datetime(date_str)
+            except Exception:
+                return datetime.min
+
+        posts.sort(key=lambda post: parse_date(post['pubdate']), reverse=True)
         return posts
     except ET.ParseError as e:
         print(f"Error parsing RSS: {e}")
