@@ -1,0 +1,189 @@
+/* Bluesky Feed Styles - Y2K Aesthetic */
+.bluesky-feed-container {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.bluesky-feed {
+    background-image: url(Media/cells-bg.png);
+    background-repeat: repeat;
+    background-color: #f0f0ff;
+    padding: 15px;
+    border: 2px dashed black;
+    border-radius: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bluesky-feed h2 {
+    font-family: RubikDistressed, Arial, sans-serif;
+    color: rgb(0, 128, 145);
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 8px;
+}
+
+.feed-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feed-post {
+    background-color: #ffffff;
+    padding: 12px;
+    border-left: 3px solid #73d0ff;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.feed-post:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.post-title {
+    color: var(--text-accent, #008091);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+}
+
+.post-title:hover {
+    color: #73d0ff;
+    text-decoration: underline;
+}
+
+.post-date {
+    font-size: 0.85em;
+    color: #666;
+    font-style: italic;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.post-content {
+    margin: 8px 0;
+    line-height: 1.5;
+    color: #333;
+    font-size: 14px;
+}
+
+.read-more {
+    display: inline-block;
+    color: #73d0ff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 8px;
+    padding: 4px 8px;
+    background-color: rgba(115, 208, 255, 0.1);
+    border-radius: 0;
+    transition: background-color 0.2s ease;
+}
+
+.read-more:hover {
+    background-color: rgba(115, 208, 255, 0.2);
+    text-decoration: none;
+}
+
+.feed-footer {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.follow-link {
+    display: inline-block;
+    color: #493478;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: #ccccff;
+    border: 2px solid #493478;
+    border-radius: 0;
+    transition: all 0.2s ease;
+}
+
+.follow-link:hover {
+    background-color: #493478;
+    color: #ccccff;
+    text-decoration: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+    .bluesky-feed {
+        padding: 12px;
+        margin: 8px 0;
+    }
+
+    .bluesky-feed h2 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .feed-post {
+        padding: 10px;
+    }
+
+    .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .post-title {
+        font-size: 15px;
+    }
+
+    .post-date {
+        font-size: 0.8em;
+        align-self: flex-end;
+    }
+
+    .post-content {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .follow-link {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+
+/* Loading state */
+.feed-loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Error state */
+.feed-error {
+    text-align: center;
+    padding: 20px;
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 0;
+}

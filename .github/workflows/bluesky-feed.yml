@@ -1,0 +1,32 @@
+name: Update Bluesky Feed
+
+on:
+  schedule:
+    # Runs every 2 hours - adjust as needed
+    - cron: '0 */2 * * *'
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install requests
+      
+      - name: Fetch and generate Bluesky feed
+        run: python scripts/generate_bluesky_feed.py
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add bluesky-feed.html
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Bluesky feed" && git push)

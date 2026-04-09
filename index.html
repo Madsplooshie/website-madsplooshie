@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Madsplooshie's fucked up psychee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Media/pfp.png">
+    <link rel="stylesheet" href="bluesky-feed.css">
+    <style>
+        /*
+        ..................................................
+        ...............-+-+++##+++++--....................
+        ...........+++++++######++######+.................
+        ........++++++++-+########+########+..............
+        .....-+++-.....-+#####################............
+        ...-+-........+#########################..........
+        ............-+###########################.........
+        ............+#############################-.......
+        .............+#############################-......
+        .............+#############################+......
+        ..............+#############################......
+        ..............##############################+.....
+        ..............###############################.....
+        ..............+##############################-....
+        ..............+##########################-###-....
+        ............##############################-##.....
+        ........+#################################-.......
+        .....-#######################-........-###-.......
+        .....####-..........-#######+...........###.##....
+        ....###+.............######-.............##+#.....
+        .....-#-..............######+............####.....
+        .....................#########..........#####+....
+        ...................-##....######+-.....+#####+....
+        ...................##......##################+....
+        .....+##########..+#+.......#################+....
+        .....+#########...-#........-################-....
+        .....##########....#....##.+##########..-###+.....
+        ......+##########......+###########+-.............
+        ..........+#####......+###########+...............
+        .....................###-+##########..............
+        ....................-####-##-#######-.............
+        ................-#+-#+############+...............
+        ................-#++#########+-...................
+        ..................................................
+        ..................................................
+        ..................................................
+        */
+
+        @font-face {
+            font-family: BarlosiusEdged;
+            src: url('Fonts/BarlosiusEdged.ttf');
+        }
+
+        @font-face {
+            font-family: PlainGermanica;
+            src: url('Fonts/Plain_Germanica.ttf');
+        }
+
+        @font-face {
+            font-family: RubikDistressed;
+            src: url('Fonts/RubikDistressed-Regular.ttf');
+        }
+
+        :root {
+            --bg-top: rgba(118, 211, 246, 0.5);
+            --bg-bottom: rgba(223, 106, 219, 0.75);
+            --screen-bg: rgba(0, 0, 0, 0.25);
+            --panel-base: #f0f0ff;
+            --panel-border: rgba(0, 0, 0, 0.2);
+            --panel-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            --text-primary: #493478;
+            --text-accent: rgb(0, 128, 145);
+            --title-shadow: 2px 2px #7b5d92;
+            --footer-bg: rgba(0, 0, 0, 0.75);
+            --link-color: #73d0ff;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(118, 211, 246, .5) 40%, rgba(223, 106, 219, .75) 100%), url(Media/static-bg.gif);
+            background-color: rgba(0, 0, 0, 0.25);
+            background-blend-mode: overlay;
+            background-repeat: repeat;
+            font-family: Arial, sans-serif;
+            padding: 0;
+            background-attachment: fixed;
+        }
+
+        .crt::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 20;
+            background-size: 100% 2px, 3px, 100%;
+            pointer-events: none;
+        }
+
+        .banner-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .banner {
+            color: white;
+            padding: 10px;
+            text-align: center;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 2px 2px #7b5d92;
+            font-size: 32px;
+            display: flex;
+        }
+
+        .transflag {
+            display: block;
+            width: 48px;
+            height: 32px;
+            align-self: center;
+            flex: 0 0 auto;
+        }
+
+        .headerPadding {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .h1Caps {
+            font-family: BarlosiusEdged;
+            display: inline;
+        }
+
+        .h1Plain {
+            font-family: PlainGermanica;
+            display: inline;
+        }
+
+        .navbar {
+            background-color: #ccccff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .page-wrapper {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .marquee {
+            max-width: 1200px;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: rgb(24, 24, 24);
+            color: white;
+        }
+
+        .main-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            box-shadow: var(--panel-shadow);
+            padding: 10px;
+        }
+
+        /* Utility classes for easy editing and modular layout updates */
+        .stacked {
+            display: block;
+        }
+
+        .no-padding {
+            padding: 0 !important;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .title-paragraph {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .title-paragraph p {
+            min-width: 0;
+            width: 100%;
+        }
+
+        .iframe-card {
+            background-color: transparent;
+            margin: auto;
+            width: 100%;
+            max-width: 600px;
+            height: 190px;
+        }
+
+        .panel {
+            background-image: url(Media/cells-bg.png);
+            background-repeat: repeat;
+            background-color: var(--panel-base);
+        }
+
+        .card {
+            padding: 10px;
+            background-color: #ffffff;
+        }
+
+        .card-border {
+            background-color: var(--panel-border);
+            padding-right: 0;
+            padding-left: 0;
+            border: 2px dashed black;
+        }
+
+        .small-block {
+            width: 100%;
+            display: block;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .iframe-wrapper {
+            margin: auto;
+        }
+
+        .fixed-height {
+            height: 190px;
+        }
+
+        .no-border {
+            border: 0;
+        }
+
+        .padded-heading {
+            padding: 0 20px;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+        }
+
+        .sidebar {
+            background-image: url(Media/cells-bg.png);
+            background-repeat: repeat;
+            background-color: var(--panel-base);
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-left {
+            width: 20%;
+        }
+
+        .profile-pic {
+            background-color: #000080;
+            width: 100% !important;
+            position: relative;
+            height: 0;
+            padding-bottom: 100%;
+            box-shadow: 0 0 0 2px rgb(0, 0, 0);
+        }
+
+        .profile-pic img {
+            max-width: 100% !important;
+        }
+
+        .sidebar-right {
+            width: 16%;
+        }
+
+        .info {
+            margin: auto;
+            background-color: #f0f0ff;
+            padding: 10px;
+        }
+
+        .info h3 {
+            text-align: center;
+            font-size: 28px;
+            font-family: BarlosiusEdged;
+            color: var(--text-primary);
+            text-shadow: var(--title-shadow);
+            margin: 5px auto 10px;
+        }
+
+        .extras {
+            margin: auto;
+            background-color: #f0f0ff;
+            padding: 10px;
+        }
+
+        .extras h3 {
+            text-align: center;
+            font-family: BarlosiusEdged;
+            color: #493478;
+            text-shadow: 2px 2px #7b5d92;
+            margin: 0px auto 10px;
+        }
+
+        .extras a {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .extras img {
+            display: block;
+            margin: auto;
+        }
+
+        .contentbar-center {
+            margin: 0px 10px;
+            width: 64%;
+        }
+
+        .contentbar {
+            padding: 10px;
+            background-image: url(Media/cells-bg.png);
+            background-repeat: repeat;
+            background-color: #f0f0ff;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            padding: 10px;
+            background-color: #ffffff;
+        }
+
+        .content h1 {
+            font-family: RubikDistressed;
+            color: rgb(0, 128, 145);
+        }
+
+        .content-box1 {
+            display: flex;
+            padding: 10px;
+            width: 50%;
+        }
+
+        .content-box2 {
+            display: block;
+            padding: 10px;
+            width: 50%;
+        }
+
+        .content-box2.content-border {
+            width: 60%;
+        }
+
+        .content-box2.no-padding {
+            width: 40%;
+            display: flow-root;
+        }
+
+        .content-box3 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-box3 li {
+            margin-bottom: -4px;
+        }
+
+        .content-border {
+            background-color: rgba(0, 0, 0, .2);
+            padding-right: 0px;
+            padding-left: 0px;
+            border: 2px dashed black;
+        }
+
+        .blinkies {
+            width: 150px;
+            height: 20px;
+        }
+
+        .skull-bullets {
+            width: 16px;
+            height: 16px;
+        }
+
+        .goblin {
+            margin-top: 12px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .content-section {
+            display: flex;
+        }
+
+        .content-section.stacked {
+            display: block;
+        }
+
+        .content-section.stacked>* {
+            width: 100%;
+        }
+
+        .content-section.stacked .iframe-section {
+            margin-top: 10px;
+        }
+
+        .content-section b {
+            font-size: 14px;
+            text-shadow: 1px 1px 2px #f1baff, -1px -1px 2px #8691eb, 0px -1px 2px #cfeeff;
+        }
+
+        .separatorborder {
+            border-top: solid rgba(0, 0, 0, 0.3) 2px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: inline;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .iframe-section {
+            text-align: center;
+        }
+
+        .iframe-card {
+            background-color: transparent;
+            margin: auto;
+            width: 100%;
+            max-width: 600px;
+            height: 190px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: small;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+            margin-top: 10px;
+        }
+
+        .responsive-iframe {
+            max-width: 600px;
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        .svg-twitch {
+            width: 16px;
+            height: 16px;
+            background-image: url(Media/SVGs/twitch.svg);
+            background-repeat: no-repeat;
+            filter: brightness(0) saturate(100%) invert(29%) sepia(12%) saturate(5795%) hue-rotate(232deg) brightness(92%) contrast(91%);
+        }
+
+        .svg-bluesky {
+            width: 16px;
+            height: 16px;
+            background-image: url(Media/SVGs/bluesky.svg);
+            background-repeat: no-repeat;
+            filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(3615%) hue-rotate(199deg) brightness(102%) contrast(106%);
+        }
+
+        .svg-instagram {
+            width: 16px;
+            height: 16px;
+            background-image: url(Media/SVGs/instagram.svg);
+            background-repeat: no-repeat;
+            filter: brightness(0) saturate(100%) invert(33%) sepia(57%) saturate(1884%) hue-rotate(212deg) brightness(93%) contrast(96%);
+        }
+
+        .svg-youtube {
+            width: 16px;
+            height: 16px;
+            background-image: url(Media/SVGs/youtube.svg);
+            background-repeat: no-repeat;
+            filter: brightness(0) saturate(100%) invert(26%) sepia(87%) saturate(7201%) hue-rotate(357deg) brightness(98%) contrast(113%);
+        }
+
+        /*********************************
+        * Honeycomb Stamp Layouts v. 1.2 *
+        * CSS by Mooeena                *
+        * Free to use/modify w/ credit   *
+        * http://mooeena.neocities.org   *
+        * 15 widths and 2 preset layouts *
+        * To use: include the classes    *
+        * "honeycomb hc-[PICK LAYOUT]"   *
+        * to your images' container div. *
+        *********************************/
+        .honeycomb {
+            display: grid;
+            grid-auto-rows: 28px;
+            gap: 30px 18px;
+            padding: 0 32px 56px 0;
+        }
+
+        .hc-2 {
+            grid-template-columns: repeat(2, 32px);
+        }
+
+        /*Infinite-length section 2 stamps wide*/
+        .hc-3 {
+            grid-template-columns: repeat(3, 32px);
+        }
+
+        /*Infinite-length section 3 stamps wide*/
+        .hc-4 {
+            grid-template-columns: repeat(4, 32px);
+        }
+
+        /*Infinite-length section 4 stamps wide*/
+        .hc-5 {
+            grid-template-columns: repeat(5, 32px);
+        }
+
+        /*Infinite-length section 5 stamps wide*/
+        .hc-6 {
+            grid-template-columns: repeat(6, 32px);
+        }
+
+        /*Infinite-length section 6 stamps wide*/
+        .hc-7 {
+            grid-template-columns: repeat(7, 32px);
+        }
+
+        /*Infinite-length section 7 stamps wide*/
+        .hc-8 {
+            grid-template-columns: repeat(8, 32px);
+        }
+
+        /*Infinite-length section 8 stamps wide*/
+        .hc-9 {
+            grid-template-columns: repeat(9, 32px);
+        }
+
+        /*Infinite-length section 9 stamps wide*/
+        .hc-10 {
+            grid-template-columns: repeat(10, 32px);
+        }
+
+        /*Infinite-length section 10 stamps wide*/
+        .hc-11 {
+            grid-template-columns: repeat(11, 32px);
+        }
+
+        /*Infinite-length section 11 stamps wide*/
+        .hc-12 {
+            grid-template-columns: repeat(12, 32px);
+        }
+
+        /*Infinite-length section 12 stamps wide*/
+        .hc-14 {
+            grid-template-columns: repeat(14, 32px);
+        }
+
+        /*Infinite-length section 14 stamps wide*/
+        .hc-16 {
+            grid-template-columns: repeat(16, 32px);
+        }
+
+        /*Infinite-length section 16 stamps wide*/
+        .hc-18 {
+            grid-template-columns: repeat(18, 32px);
+        }
+
+        /*Infinite-length section 18 stamps wide*/
+        .hc-20 {
+            grid-template-columns: repeat(20, 32px);
+        }
+
+        /*Infinite-length section 20 stamps wide*/
+        .hc-mini {
+            grid-template-columns: repeat(3, 32px);
+            padding-bottom: 28px;
+        }
+
+        /*Hexagonal group of max 7 stamps*/
+        .hc-hive {
+            grid-template-columns: repeat(7, 32px);
+            padding-bottom: 28px;
+        }
+
+        /*Oval-shaped group of max 17 stamps*/
+        /*The following concern the interlocking pattern of the grids:*/
+        .hc-2> :nth-child(2n+1),
+        .hc-4> :nth-child(2n+1),
+        .hc-6> :nth-child(2n+1),
+        .hc-8> :nth-child(2n+1),
+        .hc-10> :nth-child(2n+1),
+        .hc-12> :nth-child(2n+1),
+        .hc-14> :nth-child(2n+1),
+        .hc-16> :nth-child(2n+1),
+        .hc-18> :nth-child(2n+1),
+        .hc-20> :nth-child(2n+1) {
+            margin-top: 28px;
+        }
+
+        .hc-3> :nth-child(6n+1),
+        .hc-3> :nth-child(6n+3),
+        .hc-3> :nth-child(6n+4),
+        .hc-3> :nth-child(6n) {
+            margin-top: 28px;
+        }
+
+        .hc-5> :nth-child(10n+1),
+        .hc-5> :nth-child(10n+3),
+        .hc-5> :nth-child(10n+5),
+        .hc-5> :nth-child(10n+6),
+        .hc-5> :nth-child(10n+8),
+        .hc-5> :nth-child(10n) {
+            margin-top: 28px;
+        }
+
+        .hc-7> :nth-child(14n+1),
+        .hc-7> :nth-child(14n+3),
+        .hc-7> :nth-child(14n+5),
+        .hc-7> :nth-child(14n+7),
+        .hc-7> :nth-child(14n+8),
+        .hc-7> :nth-child(14n+10),
+        .hc-7> :nth-child(14n+12),
+        .hc-7> :nth-child(14n) {
+            margin-top: 28px;
+        }
+
+        .hc-9> :nth-child(18n+1),
+        .hc-9> :nth-child(18n+3),
+        .hc-9> :nth-child(18n+5),
+        .hc-9> :nth-child(18n+7),
+        .hc-9> :nth-child(18n+9),
+        .hc-9> :nth-child(18n+10),
+        .hc-9> :nth-child(18n+12),
+        .hc-9> :nth-child(18n+14),
+        .hc-9> :nth-child(18n+16),
+        .hc-9> :nth-child(18n) {
+            margin-top: 28px;
+        }
+
+        .hc-11> :nth-child(22n+1),
+        .hc-11> :nth-child(22n+3),
+        .hc-11> :nth-child(22n+5),
+        .hc-11> :nth-child(22n+7),
+        .hc-11> :nth-child(22n+9),
+        .hc-11> :nth-child(22n+11),
+        .hc-11> :nth-child(22n+12),
+        .hc-11> :nth-child(22n+14),
+        .hc-11> :nth-child(22n+16),
+        .hc-11> :nth-child(22n+18),
+        .hc-11> :nth-child(22n+20),
+        .hc-11> :nth-child(22n) {
+            margin-top: 28px;
+        }
+
+        .hc-mini> :nth-child(1),
+        .hc-mini> :nth-child(3),
+        .hc-mini> :nth-child(4),
+        .hc-mini> :nth-child(6) {
+            margin-top: 28px;
+        }
+
+        .hc-mini> :nth-child(7) {
+            grid-area: 3/2;
+        }
+
+        .hc-hive> :nth-child(1),
+        .hc-hive> :nth-child(3),
+        .hc-hive> :nth-child(5),
+        .hc-hive> :nth-child(7),
+        .hc-hive> :nth-child(8),
+        .hc-hive> :nth-child(10),
+        .hc-hive> :nth-child(12),
+        .hc-hive> :nth-child(14) {
+            margin-top: 28px;
+        }
+
+        .hc-hive> :nth-child(15) {
+            grid-area: 3/2;
+        }
+
+        .hc-hive> :nth-child(16) {
+            grid-area: 3/4;
+        }
+
+        .hc-hive> :nth-child(17) {
+            grid-area: 3/6;
+        }
+
+        .hc-center {
+            margin: auto;
+            width: min-content;
+        }
+
+        /* Add this class to center a group of stamps. */
+        .hc-center>* {
+            margin-left: -16px;
+        }
+
+        .mobile-alert {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 60;
+            background: rgba(10, 10, 30, 0.96);
+            color: #9ff;
+            border-top: 2px solid #73d0ff;
+            padding: 10px 12px;
+            font-family: PlainGermanica, Arial, sans-serif;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                background-attachment: scroll;
+                font-size: 15px;
+            }
+
+            .banner {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 12px;
+                font-size: 24px;
+            }
+
+            .transflag {
+                width: 36px;
+                height: 24px;
+                margin: 0;
+            }
+
+            .headerPadding {
+                padding: 0;
+            }
+
+            .page-wrapper,
+            .banner-wrapper {
+                padding: 0 10px;
+            }
+
+            .main-layout {
+                display: block;
+                padding: 8px;
+            }
+
+            .sidebar-left,
+            .sidebar-right,
+            .contentbar-center {
+                width: 100%;
+                margin-bottom: 14px;
+            }
+
+            .sidebar,
+            .contentbar,
+            .content {
+                box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+            }
+
+            .profile-pic {
+                width: 260px;
+                height: 260px;
+                margin: 0 auto;
+            }
+
+            .profile-pic img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .info,
+            .extras,
+            .content,
+            .content-box2 {
+                padding: 12px;
+            }
+
+            .content-box1,
+            .content-box2,
+            .content-box3 {
+                width: 100%;
+                display: block;
+            }
+
+            .content-box1 {
+                padding: 0;
+            }
+
+            .content-box2 {
+                margin-top: 10px;
+            }
+
+            .content-box2.content-border {
+                text-align: center;
+            }
+
+            .content-box2.content-border .content-box3 {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-box3.float-left {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+            }
+
+            .content-section {
+                display: block;
+            }
+
+            ul {
+                display: block;
+            }
+
+            .content-box3 li {
+                margin-bottom: 8px;
+            }
+
+            .goblin {
+                margin: 10px auto;
+                width: 80px;
+                height: 80px;
+            }
+
+            .blinkies {
+                width: 110px;
+                height: auto;
+            }
+
+            .honeycomb {
+                gap: 18px 12px;
+                padding: 0 16px 40px 0;
+            }
+
+            .honeycomb img {
+                width: 54px;
+                height: 54px;
+            }
+
+            .responsive-iframe {
+                max-width: 100%;
+                min-height: 200px;
+            }
+
+            .iframe-section .content {
+                width: 100%;
+                padding: 0;
+            }
+
+            .footer {
+                font-size: 0.85rem;
+                padding: 12px 10px;
+            }
+
+            a {
+                word-break: break-word;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="crt"></div>
+    <div class="banner-wrapper">
+        <div class="banner">
+            <img class="transflag" src="Media/transflag.gif">
+            <div class="headerPadding">
+                <h1 class="h1Caps">Madsplooshie</h1>
+                <h1 class="h1Plain">'</h1>
+                <h1 class="h1Caps">s Brain Dumpster</h1>
+            </div>
+            <img class="transflag" src="Media/transflag.gif">
+        </div>
+    </div>
+
+    <div class="marquee">
+        <marquee>&#128293; Welcome to my fucked up psychee~ &#128293;</marquee>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="main-layout">
+            <div class="sidebar-left">
+                <div class="sidebar">
+                    <div class="info">
+                        <div class="profile-pic">
+                            <img src="Media/pfp.png" alt="Madsplooshie">
+                        </div>
+                        <h3>- Info -</h3>
+                        <div class="separatorborder"></div>
+                        <script>
+                            var bday = new Date('01/06/1995');
+                            var today = new Date();
+
+                            var diffInMilliSeconds = today.getTime() - bday.getTime();
+                            var diffInYears = diffInMilliSeconds / 1000 / 60 / 60 / 24 / 365.25;
+
+                            var returnbday = Math.abs(Math.floor(diffInYears));
+
+                            var p = document.createElement("p");
+                            p.textContent = "Age: " + returnbday;
+                            document.querySelector(".info").appendChild(p);
+                        </script>
+                        <p>TBD.</p>
+                    </div>
+                </div>
+                <iframe src="https://discord.com/widget?id=1428211113769570316&theme=dark" width=100% height="500"
+                    allowtransparency="true" frameborder="0"
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </div>
+
+            <div class="contentbar-center">
+                <div class="contentbar">
+                    <div class="content">
+                        <div class="content-section">
+                            <div class="content-box1 title-paragraph">
+                                <h1 class="text-center">Hello, the name's Mads!</h1>
+                                <p>Este sitio esta en construccion, por ahora solo disfruta lo avanzado, incluyendo los
+                                    playlists en el webdeck-player <3 </p>
+                            </div>
+                            <div class="content-box1">
+                                <div class="content-box2 content-border" style="padding: 0px">
+                                    <div class="content-box3">
+                                        <ul>
+                                            <li>
+                                                <img src="Media/skull-bullet.gif" class="skull-bullets">&nbsp;
+                                                <b>EN/ES</b>
+                                            </li>
+                                            <li>
+                                                <img src="Media/skull-bullet.gif" class="skull-bullets">&nbsp;
+                                                <b>She/Her/Ella</b>
+                                            </li>
+                                            <li>
+                                                <img src="Media/skull-bullet.gif" class="skull-bullets">&nbsp;
+                                                <b>Streamer/WebDev</b>
+                                            </li>
+                                            <li>
+                                                <img src="Media/skull-bullet.gif" class="skull-bullets">&nbsp;
+                                                <b><a href="https://www.personality-database.com/profile?personality=11"
+                                                        target="_blank">INFP-T</a>
+                                                    <-- click</b>
+                                            </li>
+                                            <li>
+                                                <img src="Media/skull-bullet.gif" class="skull-bullets">&nbsp;
+                                                <b>Panrom/Demisex</b>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="content-box3">
+                                        <img src="Media/GOBLIN.png" class="goblin" alt="DAS ME">
+                                    </div>
+                                </div>
+                                <div class="content-box2 no-padding">
+                                    <div class="content-box3 float-left">
+                                        <ul>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/takeurmeds.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/trans.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/socialanxiety.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/scp.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/saw.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/happyhalloween.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/evilincarnate.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/capricorn.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/despiteeverything.webp"
+                                                    class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/atmylimit.gif" class="blinkies">
+                                            </li>
+                                            <li>
+                                                <img src="Media/Badges/Blinkies/autism.gif" class="blinkies">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separatorborder"></div>
+                        <div class="content-section">
+                            <div class="content-box1">
+                                <div class="content-box2">
+                                    <div>
+                                        <h1>Hi</h1>
+                                        <p>this is a test</p>
+                                    </div>
+                                </div>
+                                <div class="content-box2">
+                                    <div class="honeycomb hc-mini">
+                                        <a href="https://mooeena.neocities.org/honeycomb">
+                                            <img src="Media/Badges/Honeycomb/capricorn.png" alt="Capricorn">
+                                        </a>
+                                        <a href="https://toyhou.se/P0CKETKNIFE">
+                                            <img src="Media/Badges/Honeycomb/pride1.gif" alt="Trans-Pansexual pride :3">
+                                        </a>
+                                        <a href="https://kryxyo.carrd.co/">
+                                            <img src="Media/Badges/Honeycomb/bite.gif" alt="Bite me <3">
+                                        </a>
+                                        <a href="https://kryxyo.carrd.co/">
+                                            <img src="Media/Badges/Honeycomb/flamechain.gif" alt="Captive Soul">
+                                        </a>
+                                        <a href="https://kryxyo.carrd.co/">
+                                            <img src="Media/Badges/Honeycomb/playstation.gif"
+                                                alt="Good ole Playstation 1">
+                                        </a>
+                                        <img src="Media/Badges/Honeycomb/lain.gif" alt="I love Serial Experiments">
+                                        <a href="https://al-the-raven.neocities.org/">
+                                            <img src="Media/Badges/Honeycomb/hexagon raven stamp.png" alt="Reven Lover">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p>Honeycomb layout by <a
+                                                href="https://mooeena.neocities.org/honeycomb">Mooeena</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="separatorborder"></div>
+                        <div class="content-section stacked">
+                            <h1 class="text-center">Juegos que estoy esperando</h1>
+                            <div class="iframe-section iframe-wrapper">
+                                <div class="content iframe-card">
+                                    <iframe src="https://store.steampowered.com/widget/3014650/"
+                                        class="responsive-iframe fixed-height no-border"></iframe>
+                                </div>
+                            </div>
+                            <div class="iframe-section iframe-wrapper">
+                                <div class="content iframe-card">
+                                    <iframe src="https://store.steampowered.com/widget/2957360/"
+                                        class="responsive-iframe fixed-height no-border"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contentbar">
+                    <div class="iframe-section">
+                        <div class="content" id="bluesky-feed-wrapper">
+                            <p>Loading latest Bluesky posts...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contentbar">
+                    <div class="iframe-section">
+                        <div class="content">
+                            <iframe class="responsive-iframe" src="webdeck-player/index.html"
+                                title="webdeck-player"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-right">
+                <div class="sidebar">
+                    <div class="extras">
+                        <h3>&#128308; Live &#128308;</h3>
+                        <div class="separatorborder"></div>
+                        <ul>
+                            <li>
+                                <a href="https://www.twitch.tv/madsplooshie/">
+                                    <div class="svg-twitch"></div>
+                                    &nbsp;Twitch
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <div class="extras">
+                        <h3>Main</h3>
+                        <div class="separatorborder"></div>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="" class="strikethrough">About Me</a></li>
+                            <li><a href="" class="strikethrough">Guestbook</a></li>
+                        </ul>
+                        <br>
+                        <h3>Links</h3>
+                        <div class="separatorborder"></div>
+                        <ul>
+                            <li>
+                                <a href="https://bsky.app/profile/madsplooshie.neocities.org">
+                                    <div class="svg-bluesky"></div>
+                                    &nbsp;BlueSky
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/madsplooshie/">
+                                    <div class="svg-instagram"></div>
+                                    &nbsp;Instagram
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/@MadsplooshieVODs">
+                                    <div class="svg-youtube"></div>
+                                    &nbsp;YouTube VODs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <div class="extras">
+                        <ul>
+                            <li><img src="Media/Badges/Badges/evangelion.png" alt="Evangelion"></li>
+                        </ul>
+                        <br>
+                        <ul>
+                            <li><img src="Media/Badges/Blinkies/borntodie1.gif" class="blinkies" alt="Born to die"></li>
+                            <li><img src="Media/Badges/Blinkies/borntodie2.gif" class="blinkies" alt="Born to die"></li>
+                            <li><img src="Media/Badges/Blinkies/borntodie3.gif" class="blinkies" alt="Born to die"></li>
+                            <li><img src="Media/Badges/Blinkies/borntodie4.gif" class="blinkies" alt="Born to die"></li>
+                            <li><img src="Media/Badges/Blinkies/borntodie5.gif" class="blinkies" alt="Born to die"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Madsplooshie | <a href="mailto:madsplooshie@gmail.com">Contact Me</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var isPhone = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+                || window.matchMedia('(max-width: 900px)').matches;
+
+            if (isPhone) {
+                document.body.classList.add('phone');
+
+                var alertBar = document.createElement('div');
+                alertBar.className = 'mobile-alert';
+                alertBar.textContent = 'Phone detected: loading the Y2K mobile layout for the best handheld experience.';
+                document.body.appendChild(alertBar);
+
+                setTimeout(function () {
+                    alertBar.style.display = 'none';
+                }, 8000);
+            }
+        });
+
+        // Load Bluesky feed
+        fetch('bluesky-feed.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('bluesky-feed-wrapper').innerHTML = html;
+            })
+            .catch(error => {
+                document.getElementById('bluesky-feed-wrapper').innerHTML =
+                    '<p><em>Unable to load Bluesky feed. Check back later!</em></p>';
+                console.error('Error loading Bluesky feed:', error);
+            });
+    </script>
+</body>
+
+</html>
