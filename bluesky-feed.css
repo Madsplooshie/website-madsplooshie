@@ -187,3 +187,15 @@
     border: 1px solid rgba(255, 107, 107, 0.3);
     border-radius: 0;
 }
+
+/* Feed note styling */
+.feed-note {
+    background-color: rgba(115, 208, 255, 0.1) !important;
+    border-left-color: #493478 !important;
+    font-style: italic;
+}
+
+.feed-note .post-content {
+    color: #493478;
+    text-align: center;
+}

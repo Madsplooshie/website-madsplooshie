@@ -35,7 +35,7 @@ def parse_rss(rss_content):
             print("No items found in RSS feed")
             return []
 
-        for item in items[:5]:  # Get last 5 posts
+        for item in items[:10]:  # Get last 10 posts (increased limit)
             title_elem = item.find('title')
             link_elem = item.find('link')
             pubdate_elem = item.find('pubDate')
@@ -84,6 +84,7 @@ def generate_html(posts):
             </div>
 '''
     else:
+        post_count = len(posts)
         for post in posts:
             # Format date
             try:
@@ -105,6 +106,13 @@ def generate_html(posts):
                 <a href="{post['link']}" target="_blank" rel="noopener noreferrer" class="read-more">
                     Read on Bluesky →
                 </a>
+            </div>
+'''
+
+        # Add a note if fewer than 5 posts
+        if post_count < 5:
+            html += f'''            <div class="feed-post feed-note">
+                <p><em>📝 More posts will appear here as I share them on Bluesky! Currently showing {post_count} of my latest posts.</em></p>
             </div>
 '''
 
