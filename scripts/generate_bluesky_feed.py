@@ -83,7 +83,7 @@ def generate_html(posts):
     """Generate HTML for the feed"""
     html = '''<div class="bluesky-feed-container">
     <div class="bluesky-feed">
-        <h2>🦋 Latest from Bluesky</h2>
+        <h2>🦋 Posts de Bluesky</h2>
         <div class="feed-posts">
 '''
 
@@ -121,7 +121,7 @@ def generate_html(posts):
         # Add a note if fewer than 5 posts
         if post_count < 5:
             html += f'''            <div class="feed-post feed-note">
-                <p><em>📝 More posts will appear here as I share them on Bluesky! Currently showing {post_count} of my latest posts.</em></p>
+                <p><em>📝 Mas posts se mostraran en Bluesky en lo que los voy agregando! Por ahora, se estan mostrando {post_count} de mis ultimos posts.</em></p>
             </div>
 '''
 
