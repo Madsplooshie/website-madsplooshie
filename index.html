@@ -46,6 +46,10 @@
         ..................................................
         */
 
+        /* ============================
+           FONTS
+           ============================ */
+
         @font-face {
             font-family: BarlosiusEdged;
             src: url('Fonts/BarlosiusEdged.ttf');
@@ -61,6 +65,10 @@
             src: url('Fonts/RubikDistressed-Regular.ttf');
         }
 
+        /* ============================
+           CSS VARIABLES
+           ============================ */
+
         :root {
             --bg-top: rgba(118, 211, 246, 0.5);
             --bg-bottom: rgba(223, 106, 219, 0.75);
@@ -75,6 +83,10 @@
             --link-color: #73d0ff;
         }
 
+        /* ============================
+           RESET & BASE
+           ============================ */
+
         *,
         *::before,
         *::after {
@@ -88,14 +100,25 @@
         }
 
         body {
-            background-image: linear-gradient(rgba(118, 211, 246, .5) 40%, rgba(223, 106, 219, .75) 100%), url(Media/static-bg.gif);
-            background-color: rgba(0, 0, 0, 0.25);
+            background-image: linear-gradient(var(--bg-top) 40%, var(--bg-bottom) 100%), url(Media/static-bg.gif);
+            background-color: var(--screen-bg);
             background-blend-mode: overlay;
             background-repeat: repeat;
+            background-attachment: fixed;
             font-family: Arial, sans-serif;
             padding: 0;
-            background-attachment: fixed;
         }
+
+        ul {
+            list-style-type: none;
+            display: inline;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ============================
+           CRT EFFECT
+           ============================ */
 
         .crt::before {
             content: " ";
@@ -106,10 +129,14 @@
             bottom: 0;
             right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 20;
             background-size: 100% 2px, 3px, 100%;
+            z-index: 20;
             pointer-events: none;
         }
+
+        /* ============================
+           HEADER & BANNER
+           ============================ */
 
         .banner-wrapper {
             max-width: 1000px;
@@ -117,15 +144,14 @@
         }
 
         .banner {
-            color: white;
-            padding: 10px;
-            text-align: center;
-            max-width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 2px 2px #7b5d92;
-            font-size: 32px;
             display: flex;
+            max-width: fit-content;
+            margin: 0 auto;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            text-shadow: var(--title-shadow);
+            font-size: 32px;
         }
 
         .transflag {
@@ -137,8 +163,7 @@
         }
 
         .headerPadding {
-            padding-left: 10px;
-            padding-right: 10px;
+            padding: 0 10px;
         }
 
         .h1Caps {
@@ -151,23 +176,21 @@
             display: inline;
         }
 
-        .navbar {
-            background-color: #ccccff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .page-wrapper {
-            max-width: 1240px;
-            margin: 0 auto;
-        }
-
         .marquee {
             max-width: 1200px;
             margin: 10px auto;
             padding: 10px;
             background-color: rgb(24, 24, 24);
             color: white;
+        }
+
+        /* ============================
+           PAGE LAYOUT
+           ============================ */
+
+        .page-wrapper {
+            max-width: 1240px;
+            margin: 0 auto;
         }
 
         .main-layout {
@@ -178,85 +201,9 @@
             padding: 10px;
         }
 
-        /* Utility classes for easy editing and modular layout updates */
-        .stacked {
-            display: block;
-        }
-
-        .no-padding {
-            padding: 0 !important;
-        }
-
-        .float-left {
-            float: left;
-        }
-
-        .title-paragraph {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .title-paragraph p {
-            min-width: 0;
-            width: 100%;
-        }
-
-        .iframe-card {
-            background-color: transparent;
-            margin: auto;
-            width: 100%;
-            max-width: 600px;
-            height: 190px;
-        }
-
-        .panel {
-            background-image: url(Media/cells-bg.png);
-            background-repeat: repeat;
-            background-color: var(--panel-base);
-        }
-
-        .card {
-            padding: 10px;
-            background-color: #ffffff;
-        }
-
-        .card-border {
-            background-color: var(--panel-border);
-            padding-right: 0;
-            padding-left: 0;
-            border: 2px dashed black;
-        }
-
-        .small-block {
-            width: 100%;
-            display: block;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .iframe-wrapper {
-            margin: auto;
-        }
-
-        .fixed-height {
-            height: 190px;
-        }
-
-        .no-border {
-            border: 0;
-        }
-
-        .padded-heading {
-            padding: 0 20px;
-        }
-
-        .strikethrough {
-            text-decoration: line-through;
-        }
+        /* ============================
+           SIDEBAR
+           ============================ */
 
         .sidebar {
             background-image: url(Media/cells-bg.png);
@@ -270,26 +217,49 @@
             width: 20%;
         }
 
+        .sidebar-right {
+            width: 16%;
+        }
+
+        /* ============================
+           PROFILE CARD
+           ============================ */
+
+        .profile-title {
+            text-align: center;
+            font-family: BarlosiusEdged, Arial, sans-serif;
+            font-size: 1.3em;
+            color: var(--text-primary);
+            text-shadow: var(--title-shadow);
+            background: rgb(166, 166, 238);
+            padding: 4px 0;
+            border: 2px solid var(--text-primary);
+            border-radius: 8px 8px 0 0;
+        }
+
         .profile-pic {
             background-color: #000080;
             width: 100% !important;
             position: relative;
             height: 0;
             padding-bottom: 100%;
+            border: 2px solid var(--text-primary);
+            border-top: none;
         }
 
         .profile-pic img {
             max-width: 100% !important;
         }
 
-        .sidebar-right {
-            width: 16%;
-        }
+        /* ============================
+           INFO & EXTRAS PANELS
+           ============================ */
 
         .info {
             margin: auto;
-            background-color: #f0f0ff;
+            background-color: var(--panel-base);
             padding: 10px;
+            position: relative;
         }
 
         .info h3 {
@@ -301,18 +271,50 @@
             margin: 5px auto 10px;
         }
 
+        .info-title {
+            background: rgb(166, 166, 238);
+            margin: 0 -10px 10px;
+            padding: 6px 0;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 1em;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: var(--text-primary);
+            text-align: left;
+        }
+
+        .info-value {
+            text-align: right;
+        }
+
+        .info-separator {
+            border-top: 1px solid #bdb6d6;
+            margin: 4px 0;
+        }
+
         .extras {
             margin: auto;
-            background-color: #f0f0ff;
+            background-color: var(--panel-base);
             padding: 10px;
         }
 
         .extras h3 {
             text-align: center;
             font-family: BarlosiusEdged;
-            color: #493478;
-            text-shadow: 2px 2px #7b5d92;
-            margin: 0px auto 10px;
+            color: var(--text-primary);
+            text-shadow: var(--title-shadow);
+            margin: 0 auto 10px;
         }
 
         .extras a {
@@ -327,8 +329,12 @@
             margin: auto;
         }
 
+        /* ============================
+           CONTENT AREA
+           ============================ */
+
         .contentbar-center {
-            margin: 0px 10px;
+            margin: 0 10px;
             width: 64%;
         }
 
@@ -336,7 +342,7 @@
             padding: 10px;
             background-image: url(Media/cells-bg.png);
             background-repeat: repeat;
-            background-color: #f0f0ff;
+            background-color: var(--panel-base);
             margin-bottom: 10px;
         }
 
@@ -347,7 +353,32 @@
 
         .content h1 {
             font-family: RubikDistressed;
-            color: rgb(0, 128, 145);
+            color: var(--text-accent);
+        }
+
+        /* ============================
+           CONTENT SECTIONS & BOXES
+           ============================ */
+
+        .content-section {
+            display: flex;
+        }
+
+        .content-section.stacked {
+            display: block;
+        }
+
+        .content-section.stacked>* {
+            width: 100%;
+        }
+
+        .content-section.stacked .iframe-section {
+            margin-top: 10px;
+        }
+
+        .content-section b {
+            font-size: 14px;
+            text-shadow: 1px 1px 2px #f1baff, -1px -1px 2px #8691eb, 0 -1px 2px #cfeeff;
         }
 
         .content-box1 {
@@ -381,10 +412,50 @@
         }
 
         .content-border {
-            background-color: rgba(0, 0, 0, .2);
-            padding-right: 0px;
-            padding-left: 0px;
+            background-color: var(--panel-border);
+            padding-right: 0;
+            padding-left: 0;
             border: 2px dashed black;
+        }
+
+        .separatorborder {
+            border-top: solid rgba(0, 0, 0, 0.3) 2px;
+            margin: 5px 0;
+        }
+
+        .title-paragraph {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .title-paragraph p {
+            min-width: 0;
+            width: 100%;
+        }
+
+        /* ============================
+           MEDIA ELEMENTS
+           ============================ */
+
+        .iframe-section {
+            text-align: center;
+        }
+
+        .iframe-card {
+            background-color: transparent;
+            margin: auto;
+            width: 100%;
+            max-width: 600px;
+            height: 190px;
+        }
+
+        .responsive-iframe {
+            max-width: 600px;
+            width: 100%;
+            height: 250px;
+            border: none;
         }
 
         .blinkies {
@@ -403,175 +474,47 @@
             height: 100px;
         }
 
-        .content-section {
-            display: flex;
-        }
+        /* ============================
+           SVG ICONS
+           ============================ */
 
-        .content-section.stacked {
-            display: block;
-        }
-
-        .content-section.stacked>* {
-            width: 100%;
-        }
-
-        .content-section.stacked .iframe-section {
-            margin-top: 10px;
-        }
-
-        .content-section b {
-            font-size: 14px;
-            text-shadow: 1px 1px 2px #f1baff, -1px -1px 2px #8691eb, 0px -1px 2px #cfeeff;
-        }
-
-        .separatorborder {
-            border-top: solid rgba(0, 0, 0, 0.3) 2px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .info {
-            margin: auto;
-            background-color: #f0f0ff;
-            padding: 10px;
-            position: relative;
-        }
-
-        .info-separator {
-            border-top: 1px solid #bdb6d6;
-            margin: 4px 0;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 4px;
-            font-size: 1em;
-        }
-
-        .info-label {
-            font-weight: bold;
-            color: #493478;
-            text-align: left;
-        }
-
-        .info-value {
-            text-align: right;
-        }
-
-        .info-title {
-            background: rgb(166, 166, 238);
-            margin: 0 -10px 10px;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 6px 0;
-            text-align: center;
-        }
-
-        .profile-title {
-            text-align: center;
-            font-family: BarlosiusEdged, Arial, sans-serif;
-            font-size: 1.3em;
-            color: #493478;
-            text-shadow: 2px 2px #7b5d92;
-            background: rgb(166, 166, 238);
-            padding: 4px 0 4px 0;
-            border-top: 2px solid #493478;
-            border-left: 2px solid #493478;
-            border-right: 2px solid #493478;
-            border-bottom: 2px solid #493478;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .profile-pic {
-            background-color: #000080;
-            width: 100% !important;
-            position: relative;
-            height: 0;
-            padding-bottom: 100%;
-            border-left: 2px solid #493478;
-            border-right: 2px solid #493478;
-            border-bottom: 2px solid #493478;
-        }
-
-        ul {
-            list-style-type: none;
-            display: inline;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .iframe-section {
-            text-align: center;
-        }
-
-        .iframe-card {
-            background-color: transparent;
-            margin: auto;
-            width: 100%;
-            max-width: 600px;
-            height: 190px;
-        }
-
-        .footer {
-            text-align: center;
-            font-size: small;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.75);
-            color: white;
-            margin-top: 10px;
-        }
-
-        .responsive-iframe {
-            max-width: 600px;
-            width: 100%;
-            height: 250px;
-            border: none;
+        .svg-twitch,
+        .svg-bluesky,
+        .svg-instagram,
+        .svg-youtube {
+            width: 16px;
+            height: 16px;
+            background-repeat: no-repeat;
         }
 
         .svg-twitch {
-            width: 16px;
-            height: 16px;
             background-image: url(Media/SVGs/twitch.svg);
-            background-repeat: no-repeat;
             filter: brightness(0) saturate(100%) invert(29%) sepia(12%) saturate(5795%) hue-rotate(232deg) brightness(92%) contrast(91%);
         }
 
         .svg-bluesky {
-            width: 16px;
-            height: 16px;
             background-image: url(Media/SVGs/bluesky.svg);
-            background-repeat: no-repeat;
             filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(3615%) hue-rotate(199deg) brightness(102%) contrast(106%);
         }
 
         .svg-instagram {
-            width: 16px;
-            height: 16px;
             background-image: url(Media/SVGs/instagram.svg);
-            background-repeat: no-repeat;
             filter: brightness(0) saturate(100%) invert(33%) sepia(57%) saturate(1884%) hue-rotate(212deg) brightness(93%) contrast(96%);
         }
 
         .svg-youtube {
-            width: 16px;
-            height: 16px;
             background-image: url(Media/SVGs/youtube.svg);
-            background-repeat: no-repeat;
             filter: brightness(0) saturate(100%) invert(26%) sepia(87%) saturate(7201%) hue-rotate(357deg) brightness(98%) contrast(113%);
         }
 
-        /*********************************
-        * Honeycomb Stamp Layouts v. 1.2 *
-        * CSS by Mooeena                *
-        * Free to use/modify w/ credit   *
-        * http://mooeena.neocities.org   *
-        * 15 widths and 2 preset layouts *
-        * To use: include the classes    *
-        * "honeycomb hc-[PICK LAYOUT]"   *
-        * to your images' container div. *
-        *********************************/
+        /* ============================
+           HONEYCOMB STAMPS
+           Honeycomb Stamp Layouts v. 1.2
+           CSS by Mooeena
+           Free to use/modify w/ credit
+           http://mooeena.neocities.org
+           ============================ */
+
         .honeycomb {
             display: grid;
             grid-auto-rows: 28px;
@@ -583,90 +526,73 @@
             grid-template-columns: repeat(2, 32px);
         }
 
-        /*Infinite-length section 2 stamps wide*/
         .hc-3 {
             grid-template-columns: repeat(3, 32px);
         }
 
-        /*Infinite-length section 3 stamps wide*/
         .hc-4 {
             grid-template-columns: repeat(4, 32px);
         }
 
-        /*Infinite-length section 4 stamps wide*/
         .hc-5 {
             grid-template-columns: repeat(5, 32px);
         }
 
-        /*Infinite-length section 5 stamps wide*/
         .hc-6 {
             grid-template-columns: repeat(6, 32px);
         }
 
-        /*Infinite-length section 6 stamps wide*/
         .hc-7 {
             grid-template-columns: repeat(7, 32px);
         }
 
-        /*Infinite-length section 7 stamps wide*/
         .hc-8 {
             grid-template-columns: repeat(8, 32px);
         }
 
-        /*Infinite-length section 8 stamps wide*/
         .hc-9 {
             grid-template-columns: repeat(9, 32px);
         }
 
-        /*Infinite-length section 9 stamps wide*/
         .hc-10 {
             grid-template-columns: repeat(10, 32px);
         }
 
-        /*Infinite-length section 10 stamps wide*/
         .hc-11 {
             grid-template-columns: repeat(11, 32px);
         }
 
-        /*Infinite-length section 11 stamps wide*/
         .hc-12 {
             grid-template-columns: repeat(12, 32px);
         }
 
-        /*Infinite-length section 12 stamps wide*/
         .hc-14 {
             grid-template-columns: repeat(14, 32px);
         }
 
-        /*Infinite-length section 14 stamps wide*/
         .hc-16 {
             grid-template-columns: repeat(16, 32px);
         }
 
-        /*Infinite-length section 16 stamps wide*/
         .hc-18 {
             grid-template-columns: repeat(18, 32px);
         }
 
-        /*Infinite-length section 18 stamps wide*/
         .hc-20 {
             grid-template-columns: repeat(20, 32px);
         }
 
-        /*Infinite-length section 20 stamps wide*/
         .hc-mini {
             grid-template-columns: repeat(3, 32px);
             padding-bottom: 28px;
         }
 
-        /*Hexagonal group of max 7 stamps*/
         .hc-hive {
             grid-template-columns: repeat(7, 32px);
             padding-bottom: 28px;
         }
 
-        /*Oval-shaped group of max 17 stamps*/
-        /*The following concern the interlocking pattern of the grids:*/
+        /* Honeycomb interlocking patterns */
         .hc-2> :nth-child(2n+1),
         .hc-4> :nth-child(2n+1),
         .hc-6> :nth-child(2n+1),
@@ -774,10 +700,62 @@
             width: min-content;
         }
 
-        /* Add this class to center a group of stamps. */
         .hc-center>* {
             margin-left: -16px;
         }
+
+        /* ============================
+           UTILITY CLASSES
+           ============================ */
+
+        .stacked {
+            display: block;
+        }
+
+        .no-padding {
+            padding: 0 !important;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .iframe-wrapper {
+            margin: auto;
+        }
+
+        .fixed-height {
+            height: 190px;
+        }
+
+        .no-border {
+            border: 0;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+        }
+
+        /* ============================
+           FOOTER
+           ============================ */
+
+        .footer {
+            text-align: center;
+            font-size: small;
+            padding: 10px;
+            background-color: var(--footer-bg);
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* ============================
+           MOBILE ALERT
+           ============================ */
 
         .mobile-alert {
             position: fixed;
@@ -787,12 +765,16 @@
             z-index: 60;
             background: rgba(10, 10, 30, 0.96);
             color: #9ff;
-            border-top: 2px solid #73d0ff;
+            border-top: 2px solid var(--link-color);
             padding: 10px 12px;
             font-family: PlainGermanica, Arial, sans-serif;
             text-align: center;
             font-size: 0.95rem;
         }
+
+        /* ============================
+           RESPONSIVE (max-width: 900px)
+           ============================ */
 
         @media (max-width: 900px) {
             body {
