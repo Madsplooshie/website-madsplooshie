@@ -1,4 +1,4 @@
-/* Bluesky Feed Styles - Y2K Aesthetic */
+/* Bluesky Feed Styles - Speech Bubble */
 .bluesky-feed-container {
     width: 100%;
     margin: 10px 0;
@@ -26,16 +26,64 @@
 .feed-posts {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+}
+
+/* Row: avatar + bubble side by side */
+.feed-post-row {
+    display: flex;
+    align-items: flex-start;
     gap: 12px;
 }
 
+/* Circular profile pic */
+.feed-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #493478;
+    flex-shrink: 0;
+    margin-top: 8px;
+    object-fit: cover;
+    background-color: #000080;
+}
+
+/* Speech bubble */
 .feed-post {
+    position: relative;
     background-color: #ffffff;
     padding: 12px;
-    border-left: 3px solid #73d0ff;
-    border-radius: 0;
+    border: 2px solid #73d0ff;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Speech bubble triangle pointing left toward the avatar */
+.feed-post::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid #73d0ff;
+}
+
+.feed-post::after {
+    content: '';
+    position: absolute;
+    top: 17px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 8px solid #ffffff;
 }
 
 .feed-post:hover {
@@ -138,6 +186,15 @@
         margin-bottom: 12px;
     }
 
+    .feed-post-row {
+        gap: 8px;
+    }
+
+    .feed-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
     .feed-post {
         padding: 10px;
     }
@@ -189,8 +246,16 @@
 /* Feed note styling */
 .feed-note {
     background-color: rgba(115, 208, 255, 0.1) !important;
-    border-left-color: #493478 !important;
+    border-color: #493478 !important;
     font-style: italic;
+}
+
+.feed-note::before {
+    border-right-color: #493478 !important;
+}
+
+.feed-note::after {
+    border-right-color: rgba(115, 208, 255, 0.1) !important;
 }
 
 .feed-note .post-content {
