@@ -7,72 +7,6 @@
     <link rel="icon" type="image/x-icon" href="Media/pfp.png">
     <link rel="stylesheet" href="bluesky-feed.css">
     <style>
-        .info {
-            margin: auto;
-            background-color: #f0f0ff;
-            padding: 10px;
-            position: relative;
-        }
-
-
-        .info-separator {
-            border-top: 1px solid #bdb6d6;
-            margin: 4px 0;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 4px;
-            font-size: 1em;
-        }
-
-        .info-label {
-            font-weight: bold;
-            color: #493478;
-            text-align: left;
-        }
-
-        .info-value {
-            text-align: right;
-        }
-
-        .info-title {
-            background: rgb(166, 166, 238);
-            margin: 0 -10px 10px;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 6px 0;
-            text-align: center;
-        }
-
-        .profile-title {
-            text-align: center;
-            font-family: BarlosiusEdged, Arial, sans-serif;
-            font-size: 1.3em;
-            color: #493478;
-            text-shadow: 2px 2px #7b5d92;
-            background: rgb(166, 166, 238);
-            padding: 4px 0 4px 0;
-            border-top: 2px solid #493478;
-            border-left: 2px solid #493478;
-            border-right: 2px solid #493478;
-            border-bottom: 2px solid #493478;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .profile-pic {
-            background-color: #000080;
-            width: 100% !important;
-            position: relative;
-            height: 0;
-            padding-bottom: 100%;
-            border-left: 2px solid #493478;
-            border-right: 2px solid #493478;
-            border-bottom: 2px solid #493478;
-        }
-
         /*
         ..................................................
         ...............-+-+++##+++++--....................
@@ -494,6 +428,71 @@
             border-top: solid rgba(0, 0, 0, 0.3) 2px;
             margin-top: 5px;
             margin-bottom: 5px;
+        }
+
+        .info {
+            margin: auto;
+            background-color: #f0f0ff;
+            padding: 10px;
+            position: relative;
+        }
+
+        .info-separator {
+            border-top: 1px solid #bdb6d6;
+            margin: 4px 0;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 1em;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #493478;
+            text-align: left;
+        }
+
+        .info-value {
+            text-align: right;
+        }
+
+        .info-title {
+            background: rgb(166, 166, 238);
+            margin: 0 -10px 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 6px 0;
+            text-align: center;
+        }
+
+        .profile-title {
+            text-align: center;
+            font-family: BarlosiusEdged, Arial, sans-serif;
+            font-size: 1.3em;
+            color: #493478;
+            text-shadow: 2px 2px #7b5d92;
+            background: rgb(166, 166, 238);
+            padding: 4px 0 4px 0;
+            border-top: 2px solid #493478;
+            border-left: 2px solid #493478;
+            border-right: 2px solid #493478;
+            border-bottom: 2px solid #493478;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .profile-pic {
+            background-color: #000080;
+            width: 100% !important;
+            position: relative;
+            height: 0;
+            padding-bottom: 100%;
+            border-left: 2px solid #493478;
+            border-right: 2px solid #493478;
+            border-bottom: 2px solid #493478;
         }
 
         ul {
@@ -1163,8 +1162,8 @@
                 <div class="contentbar">
                     <div class="iframe-section">
                         <div class="content">
-                            <iframe class="responsive-iframe" src="webdeck-player/index.html"
-                                title="webdeck-player"></iframe>
+                            <iframe class="responsive-iframe" src="webdeck-player/index.html" title="webdeck-player"
+                                allow="autoplay; encrypted-media"></iframe>
                         </div>
                     </div>
                 </div>
