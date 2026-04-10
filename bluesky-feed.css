@@ -5,11 +5,7 @@
 }
 
 .bluesky-feed {
-    background-image: url(Media/cells-bg.png);
-    background-repeat: repeat;
-    background-color: var(--panel-base, #f0f0ff);
     padding: 15px;
-    border: 2px dashed black;
 }
 
 .bluesky-feed h2 {
@@ -18,10 +14,7 @@
     text-align: center;
     margin: 0 0 15px 0;
     font-size: 24px;
-    text-shadow: var(--title-shadow, 2px 2px #7b5d92);
-    background: rgb(166, 166, 238);
     padding: 6px 0;
-    border: 2px solid var(--text-primary, #493478);
 }
 
 .feed-posts {
