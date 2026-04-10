@@ -197,6 +197,10 @@
         }
 
         .caption-artist.redacted {
+            color: var(--text-accent);
+        }
+
+        .redacted-bar {
             background-color: #000;
             color: #000;
             display: inline-block;
@@ -424,9 +428,19 @@
                     if (artArtist) {
                         var artistSpan = document.createElement('div');
                         artistSpan.className = 'caption-artist';
-                        if (artArtist.toUpperCase() === 'REDACTED') {
+                        if (artArtist.toUpperCase().indexOf('REDACTED') !== -1) {
                             artistSpan.classList.add('redacted');
-                            artistSpan.textContent = '\u2588\u2588\u2588\u2588\u2588\u2588';
+                            var byPrefix = artArtist.substring(0, artArtist.toUpperCase().indexOf('REDACTED'));
+                            artistSpan.innerHTML = '';
+                            if (byPrefix) {
+                                var bySpan = document.createElement('span');
+                                bySpan.textContent = byPrefix;
+                                artistSpan.appendChild(bySpan);
+                            }
+                            var barSpan = document.createElement('span');
+                            barSpan.className = 'redacted-bar';
+                            barSpan.textContent = '\u2588\u2588\u2588\u2588\u2588\u2588';
+                            artistSpan.appendChild(barSpan);
                         } else {
                             artistSpan.textContent = artArtist;
                         }
