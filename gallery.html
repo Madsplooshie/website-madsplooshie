@@ -69,7 +69,7 @@
         }
 
         .banner-wrapper {
-            max-width: 1000px;
+            max-width: 1240px;
             margin: 0 auto;
         }
 
@@ -107,15 +107,16 @@
         }
 
         .page-wrapper {
-            max-width: 1000px;
+            width: 100%;
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 10px;
             flex: 1;
         }
 
         .marquee {
-            max-width: 1000px;
-            margin: 0 auto 10px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px auto;
             padding: 10px;
             background-color: rgb(24, 24, 24);
             color: white;
@@ -143,8 +144,8 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
         }
 
         .gallery-item {
@@ -152,6 +153,12 @@
             border: 2px solid var(--text-primary);
             cursor: pointer;
             background-color: #000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(73, 52, 120, 0.35);
         }
 
         .gallery-item .thumb-wrapper {
@@ -201,13 +208,19 @@
         .back-link {
             display: inline-block;
             margin-bottom: 10px;
-            color: var(--text-primary);
+            padding: 6px 14px;
+            color: white;
             font-weight: bold;
             text-decoration: none;
+            background-color: var(--text-primary);
+            border: 2px solid var(--text-primary);
+            font-size: 14px;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
 
         .back-link:hover {
-            text-decoration: underline;
+            background-color: transparent;
+            color: var(--text-primary);
         }
 
         /* Lightbox overlay */
@@ -296,15 +309,15 @@
         </div>
     </div>
 
+    <div class="marquee">
+        <marquee>&#128293; Welcome to my fucked up psychee~ &#128293;</marquee>
+    </div>
+
     <div class="page-wrapper">
         <div class="gallery-panel">
             <div class="gallery-content">
                 <a href="index.html" class="back-link">&larr; Back to Home</a>
                 <h1>Gallery</h1>
-
-                <div class="marquee">
-                    <marquee>&#128293; Welcome to my fucked up psychee~ &#128293;</marquee>
-                </div>
 
                 <div class="gallery-grid" id="gallery-grid">
                     <!-- Images are loaded automatically from Cloudinary -->
