@@ -926,7 +926,8 @@
             }
 
             .content-box3.float-left {
-                display: flex;
+                display: flex !important;
+                float: none;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 5px;
@@ -958,6 +959,8 @@
             .honeycomb {
                 gap: 18px 12px;
                 padding: 0 16px 40px 0;
+                margin: 0 auto;
+                width: fit-content;
             }
 
             .honeycomb img {
