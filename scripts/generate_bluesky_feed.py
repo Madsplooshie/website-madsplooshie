@@ -105,21 +105,39 @@ def generate_html(posts):
     else:
         post_count = len(posts)
         for post in posts:
+            has_text = bool(post['description'].strip())
+            has_image = bool(post['thumbnail'])
+
             # Build thumbnail HTML if image exists
             thumb_html = ''
-            if post['thumbnail']:
-                thumb_html = f'\n                    <a href="{post["link"]}" target="_blank" rel="noopener noreferrer"><img src="{post["thumbnail"]}" alt="Post image" class="post-thumbnail"></a>'
+            if has_image:
+                thumb_html = f'<a href="{post["link"]}" target="_blank" rel="noopener noreferrer"><img src="{post["thumbnail"]}" alt="Post image" class="post-thumbnail"></a>'
+
+            # Determine body class and content
+            if has_image and not has_text:
+                # Image only - centered
+                body_html = f'''
+                    <div class="post-body image-only">
+                        {thumb_html}
+                    </div>'''
+            elif has_image and has_text:
+                # Text + image on the right
+                body_html = f'''
+                    <div class="post-body">
+                        <p class="post-content">{post['description']}</p>
+                        {thumb_html}
+                    </div>'''
+            else:
+                # Text only
+                body_html = f'''
+                    <div class="post-body">
+                        <p class="post-content">{post['description']}</p>
+                    </div>'''
 
             html += f'''            <div class="feed-post-row">
                 <img src="Media/pfp.png" alt="Madsplooshie" class="feed-avatar">
-                <div class="feed-post">
-                    <div class="post-header">
-                        <span class="post-title">Nueva publicación de Bluesky</span>
-                        <span class="post-date">{post['date']}</span>
-                    </div>
-                    <div class="post-body">{thumb_html}
-                        <p class="post-content">{post['description']}</p>
-                    </div>
+                <div class="feed-post">{body_html}
+                    <span class="post-date">{post['date']}</span>
                     <a href="{post['link']}" target="_blank" rel="noopener noreferrer" class="read-more">
                         Leer en Bluesky →
                     </a>
