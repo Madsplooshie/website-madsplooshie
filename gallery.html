@@ -54,6 +54,13 @@
             padding: 0;
         }
 
+        ul {
+            list-style-type: none;
+            display: inline;
+            padding: 0;
+            margin: 0;
+        }
+
         .crt::before {
             content: " ";
             display: block;
@@ -111,6 +118,182 @@
             max-width: 1240px;
             margin: 0 auto;
             flex: 1;
+        }
+
+        .main-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            box-shadow: var(--panel-shadow);
+            padding: 10px;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            background-image: url(Media/cells-bg.png);
+            background-repeat: repeat;
+            background-color: var(--panel-base);
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-left {
+            width: 20%;
+        }
+
+        .sidebar-right {
+            width: 16%;
+        }
+
+        .profile-title {
+            text-align: center;
+            font-family: BarlosiusEdged, Arial, sans-serif;
+            font-size: 1.3em;
+            color: var(--text-primary);
+            text-shadow: var(--title-shadow);
+            background: rgb(166, 166, 238);
+            padding: 4px 0;
+            border: 2px solid var(--text-primary);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .profile-pic {
+            background-color: #000080;
+            width: 100% !important;
+            position: relative;
+            height: 0;
+            padding-bottom: 100%;
+            border: 2px solid var(--text-primary);
+            border-top: none;
+        }
+
+        .profile-pic img {
+            max-width: 100% !important;
+        }
+
+        .info {
+            margin: auto;
+            background-color: var(--panel-base);
+            padding: 10px;
+            position: relative;
+        }
+
+        .info h3 {
+            text-align: center;
+            font-size: 28px;
+            font-family: BarlosiusEdged;
+            color: var(--text-primary);
+            text-shadow: var(--title-shadow);
+            margin: 5px auto 10px;
+        }
+
+        .info-title {
+            background: rgb(166, 166, 238);
+            margin: 0 -10px 10px;
+            padding: 6px 0;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 1em;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: var(--text-primary);
+            text-align: left;
+        }
+
+        .info-value {
+            text-align: right;
+        }
+
+        .info-separator {
+            border-top: 1px solid #bdb6d6;
+            margin: 4px 0;
+        }
+
+        .extras {
+            margin: auto;
+            background-color: var(--panel-base);
+            padding: 10px;
+        }
+
+        .extras h3 {
+            text-align: center;
+            font-family: BarlosiusEdged;
+            color: var(--text-primary);
+            text-shadow: var(--title-shadow);
+            margin: 0 auto 10px;
+        }
+
+        .extras a {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .extras img {
+            display: block;
+            margin: auto;
+        }
+
+        .separatorborder {
+            border-top: solid rgba(0, 0, 0, 0.3) 2px;
+            margin: 5px 0;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+        }
+
+        .blinkies {
+            width: 150px;
+            height: 20px;
+        }
+
+        .svg-twitch,
+        .svg-bluesky,
+        .svg-instagram,
+        .svg-youtube {
+            width: 16px;
+            height: 16px;
+            background-repeat: no-repeat;
+        }
+
+        .svg-twitch {
+            background-image: url(Media/SVGs/twitch.svg);
+            filter: brightness(0) saturate(100%) invert(29%) sepia(12%) saturate(5795%) hue-rotate(232deg) brightness(92%) contrast(91%);
+        }
+
+        .svg-bluesky {
+            background-image: url(Media/SVGs/bluesky.svg);
+            filter: brightness(0) saturate(100%) invert(43%) sepia(92%) saturate(3615%) hue-rotate(199deg) brightness(102%) contrast(106%);
+        }
+
+        .svg-instagram {
+            background-image: url(Media/SVGs/instagram.svg);
+            filter: brightness(0) saturate(100%) invert(33%) sepia(57%) saturate(1884%) hue-rotate(212deg) brightness(93%) contrast(96%);
+        }
+
+        .svg-youtube {
+            background-image: url(Media/SVGs/youtube.svg);
+            filter: brightness(0) saturate(100%) invert(26%) sepia(87%) saturate(7201%) hue-rotate(357deg) brightness(98%) contrast(113%);
+        }
+
+        /* CONTENT CENTER */
+
+        .contentbar-center {
+            margin: 0 10px;
+            width: 64%;
         }
 
         .marquee {
@@ -290,6 +473,43 @@
                 padding: 0;
             }
 
+            .page-wrapper,
+            .banner-wrapper {
+                padding: 0 10px;
+            }
+
+            .main-layout {
+                display: block;
+                padding: 8px;
+            }
+
+            .sidebar-left,
+            .sidebar-right,
+            .contentbar-center {
+                width: 100%;
+                margin: 0 0 14px 0;
+            }
+
+            .sidebar {
+                box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+            }
+
+            .profile-pic {
+                width: 260px;
+                height: 260px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .profile-pic img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
                 gap: 8px;
@@ -318,18 +538,126 @@
     </div>
 
     <div class="page-wrapper">
-        <div class="gallery-panel">
-            <div class="gallery-content">
-                <a href="index.html" class="back-link">&larr; Back to Home</a>
-                <h1>Gallery</h1>
-
-                <div class="gallery-grid" id="gallery-grid">
-                    <!-- Images are loaded automatically from Cloudinary -->
+        <div class="main-layout">
+            <div class="sidebar-left">
+                <div class="sidebar">
+                    <div class="info">
+                        <div class="profile-title">Madsplooshie</div>
+                        <div class="profile-pic">
+                            <img src="Media/pfp.png" alt="Madsplooshie">
+                        </div>
+                        <h3 class="info-title">- Bio Info -</h3>
+                        <div class="info-row">
+                            <span class="info-label">Especie</span>
+                            <span class="info-value">Goblin</span>
+                        </div>
+                        <div class="info-separator"></div>
+                        <div class="info-row" id="birthday-row">
+                            <span class="info-label">Cumpleaños</span>
+                            <span class="info-value" id="birthday-value"></span>
+                        </div>
+                        <div class="info-separator"></div>
+                        <div class="info-row">
+                            <span class="info-label">Genero</span>
+                            <span class="info-value">Chica trans</span>
+                        </div>
+                        <script>
+                            var bday = new Date('01/06/1995');
+                            var today = new Date();
+                            var diffInMilliSeconds = today.getTime() - bday.getTime();
+                            var diffInYears = diffInMilliSeconds / 1000 / 60 / 60 / 24 / 365.25;
+                            var returnbday = Math.abs(Math.floor(diffInYears));
+                            document.getElementById("birthday-value").textContent = "6 de Enero (" + returnbday + " años)";
+                        </script>
+                    </div>
                 </div>
+                <iframe src="https://discord.com/widget?id=1428211113769570316&theme=dark" width=100% height="500"
+                    allowtransparency="true" frameborder="0"
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </div>
 
-                <p id="gallery-status" style="text-align: center; color: #999; margin-top: 20px;">
-                    <i>Loading gallery...</i>
-                </p>
+            <div class="contentbar-center">
+                <div class="gallery-panel">
+                    <div class="gallery-content">
+                        <a href="index.html" class="back-link">&larr; Back to Home</a>
+                        <h1>Gallery</h1>
+
+                        <div class="gallery-grid" id="gallery-grid">
+                            <!-- Images are loaded automatically from Cloudinary -->
+                        </div>
+
+                        <p id="gallery-status" style="text-align: center; color: #999; margin-top: 20px;">
+                            <i>Loading gallery...</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-right">
+                <div class="sidebar">
+                    <div class="extras">
+                        <h3>&#128308; Live &#128308;</h3>
+                        <div class="separatorborder"></div>
+                        <ul>
+                            <li>
+                                <a href="https://www.twitch.tv/madsplooshie/">
+                                    <div class="svg-twitch"></div>
+                                    &nbsp;Twitch
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <div class="extras">
+                        <h3>Main</h3>
+                        <div class="separatorborder"></div>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="" class="strikethrough">About Me</a></li>
+                            <li><a href="" class="strikethrough">Guestbook</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                        <br>
+                        <h3>Links</h3>
+                        <div class="separatorborder"></div>
+                        <ul>
+                            <li>
+                                <a href="https://bsky.app/profile/madsplooshie.neocities.org">
+                                    <div class="svg-bluesky"></div>
+                                    &nbsp;BlueSky
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/madsplooshie/">
+                                    <div class="svg-instagram"></div>
+                                    &nbsp;Instagram
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/@MadsplooshieVODs">
+                                    <div class="svg-youtube"></div>
+                                    &nbsp;YouTube VODs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <div class="extras">
+                        <ul>
+                            <li><img src="Media/Badges/Badges/evangelion.png" alt="Evangelion"></li>
+                        </ul>
+                        <br>
+                        <ul>
+                            <li><img src="Media/Badges/Blinkies/borntodie1.gif" class="blinkies" alt="Born to die"></li>
+                            <li><img src="Media/Badges/Blinkies/borntodie2.gif" class="blinkies" alt="Born to die"></li>
+                            <li><img src="Media/Badges/Blinkies/borntodie3.gif" class="blinkies" alt="Born to die"></li>
+                            <li><img src="Media/Badges/Blinkies/borntodie4.gif" class="blinkies" alt="Born to die"></li>
+                            <li><img src="Media/Badges/Blinkies/borntodie5.gif" class="blinkies" alt="Born to die"></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

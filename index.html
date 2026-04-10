@@ -508,6 +508,59 @@
         }
 
         /* ============================
+           LATEST VIDEO
+           ============================ */
+
+        .latest-video {
+            text-align: center;
+        }
+
+        .latest-video h1 {
+            font-family: RubikDistressed;
+            color: var(--text-accent);
+            margin-top: 0;
+        }
+
+        .latest-video-embed {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .latest-video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--text-primary);
+        }
+
+        .latest-video-title {
+            margin-top: 8px;
+            font-weight: bold;
+            color: var(--text-primary);
+            font-size: 0.95em;
+        }
+
+        .latest-video-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .latest-video-title a:hover {
+            text-decoration: underline;
+        }
+
+        .latest-video-date {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        /* ============================
            HONEYCOMB STAMPS
            Honeycomb Stamp Layouts v. 1.2
            CSS by Mooeena
@@ -1083,41 +1136,41 @@
                             </div>
                         </div>
                         <div class="separatorborder"></div>
-                        <div class="content-section">
-                            <div class="content-box1">
-                                <div class="content-box2">
-                                    <div>
-                                        <h1>Hi</h1>
-                                        <p>this is a test</p>
-                                    </div>
+                        <div class="content-section stacked">
+                            <div class="latest-video">
+                                <h1>Latest Video</h1>
+                                <div id="latest-video-container">
+                                    <p style="color: #999;"><i>Loading latest video...</i></p>
                                 </div>
-                                <div class="content-box2">
-                                    <div class="honeycomb hc-mini">
-                                        <a href="https://mooeena.neocities.org/honeycomb">
-                                            <img src="Media/Badges/Honeycomb/capricorn.png" alt="Capricorn">
-                                        </a>
-                                        <a href="https://toyhou.se/P0CKETKNIFE">
-                                            <img src="Media/Badges/Honeycomb/pride1.gif" alt="Trans-Pansexual pride :3">
-                                        </a>
-                                        <a href="https://kryxyo.carrd.co/">
-                                            <img src="Media/Badges/Honeycomb/bite.gif" alt="Bite me <3">
-                                        </a>
-                                        <a href="https://kryxyo.carrd.co/">
-                                            <img src="Media/Badges/Honeycomb/flamechain.gif" alt="Captive Soul">
-                                        </a>
-                                        <a href="https://kryxyo.carrd.co/">
-                                            <img src="Media/Badges/Honeycomb/playstation.gif"
-                                                alt="Good ole Playstation 1">
-                                        </a>
-                                        <img src="Media/Badges/Honeycomb/lain.gif" alt="I love Serial Experiments">
-                                        <a href="https://al-the-raven.neocities.org/">
-                                            <img src="Media/Badges/Honeycomb/hexagon raven stamp.png" alt="Reven Lover">
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <p>Honeycomb layout by <a
-                                                href="https://mooeena.neocities.org/honeycomb">Mooeena</a></p>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="separatorborder"></div>
+                        <div class="content-section">
+                            <div class="content-box2">
+                                <div class="honeycomb hc-mini">
+                                    <a href="https://mooeena.neocities.org/honeycomb">
+                                        <img src="Media/Badges/Honeycomb/capricorn.png" alt="Capricorn">
+                                    </a>
+                                    <a href="https://toyhou.se/P0CKETKNIFE">
+                                        <img src="Media/Badges/Honeycomb/pride1.gif" alt="Trans-Pansexual pride :3">
+                                    </a>
+                                    <a href="https://kryxyo.carrd.co/">
+                                        <img src="Media/Badges/Honeycomb/bite.gif" alt="Bite me <3">
+                                    </a>
+                                    <a href="https://kryxyo.carrd.co/">
+                                        <img src="Media/Badges/Honeycomb/flamechain.gif" alt="Captive Soul">
+                                    </a>
+                                    <a href="https://kryxyo.carrd.co/">
+                                        <img src="Media/Badges/Honeycomb/playstation.gif" alt="Good ole Playstation 1">
+                                    </a>
+                                    <img src="Media/Badges/Honeycomb/lain.gif" alt="I love Serial Experiments">
+                                    <a href="https://al-the-raven.neocities.org/">
+                                        <img src="Media/Badges/Honeycomb/hexagon raven stamp.png" alt="Reven Lover">
+                                    </a>
+                                </div>
+                                <div>
+                                    <p>Honeycomb layout by <a href="https://mooeena.neocities.org/honeycomb">Mooeena</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1246,6 +1299,72 @@
                 }, 8000);
             }
         });
+
+        // Load latest YouTube video
+        (function () {
+            // =============================================
+            // CONFIGURATION - Set your YouTube channel ID!
+            // Find it: YouTube Studio > Settings > Channel > Advanced settings
+            // Or: view-source on your channel page, search "channelId"
+            // =============================================
+            var YT_CHANNEL_ID = 'UCrmnSUuEcngGWuZuCN1zaTg';
+
+            var rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + YT_CHANNEL_ID;
+            var apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+            var container = document.getElementById('latest-video-container');
+
+            fetch(apiUrl)
+                .then(function (response) {
+                    if (!response.ok) throw new Error('Feed fetch failed');
+                    return response.json();
+                })
+                .then(function (data) {
+                    if (!data.items || data.items.length === 0) {
+                        container.innerHTML = '<p><i>No videos found.</i></p>';
+                        return;
+                    }
+                    var video = data.items[0];
+                    var videoUrl = video.link || '';
+                    var videoId = '';
+                    var match = videoUrl.match(/[?&]v=([^&]+)/);
+                    if (match) videoId = match[1];
+
+                    var pubDate = video.pubDate ? new Date(video.pubDate).toLocaleDateString() : '';
+
+                    container.innerHTML = '';
+
+                    if (videoId) {
+                        var embedWrapper = document.createElement('div');
+                        embedWrapper.className = 'latest-video-embed';
+                        var iframe = document.createElement('iframe');
+                        iframe.src = 'https://www.youtube.com/embed/' + videoId;
+                        iframe.title = video.title || 'Latest Video';
+                        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                        iframe.allowFullscreen = true;
+                        embedWrapper.appendChild(iframe);
+                        container.appendChild(embedWrapper);
+                    }
+
+                    var titleDiv = document.createElement('div');
+                    titleDiv.className = 'latest-video-title';
+                    var titleLink = document.createElement('a');
+                    titleLink.href = videoUrl;
+                    titleLink.target = '_blank';
+                    titleLink.textContent = video.title || 'Watch on YouTube';
+                    titleDiv.appendChild(titleLink);
+                    container.appendChild(titleDiv);
+
+                    if (pubDate) {
+                        var dateDiv = document.createElement('div');
+                        dateDiv.className = 'latest-video-date';
+                        dateDiv.textContent = pubDate;
+                        container.appendChild(dateDiv);
+                    }
+                })
+                .catch(function () {
+                    container.innerHTML = '<p><i>Could not load latest video. <a href="https://www.youtube.com/@MadsplooshieVODs" target="_blank">Visit the channel</a></i></p>';
+                });
+        })();
 
         // Load Bluesky feed
         fetch('bluesky-feed.html')
