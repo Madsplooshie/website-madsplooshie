@@ -806,6 +806,10 @@
             margin-top: 10px;
         }
 
+        .footer a {
+            color: #73d0ff;
+        }
+
         /* ============================
            MOBILE ALERT
            ============================ */
@@ -930,7 +934,11 @@
                 float: none;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 5px;
+                gap: 0;
+            }
+
+            .content-box3.float-left li {
+                margin-bottom: 0;
             }
 
             .content-section {
@@ -1150,28 +1158,31 @@
                             </div>
                             <div class="content-box2" style="width: 40%;">
                                 <div class="honeycomb hc-mini">
-                                    <a href="https://mooeena.neocities.org/honeycomb">
+                                    <a href="https://mooeena.neocities.org/honeycomb" target="_blank"
+                                        rel="noopener noreferrer">
                                         <img src="Media/Badges/Honeycomb/capricorn.png" alt="Capricorn">
                                     </a>
-                                    <a href="https://toyhou.se/P0CKETKNIFE">
+                                    <a href="https://toyhou.se/P0CKETKNIFE" target="_blank" rel="noopener noreferrer">
                                         <img src="Media/Badges/Honeycomb/pride1.gif" alt="Trans-Pansexual pride :3">
                                     </a>
-                                    <a href="https://kryxyo.carrd.co/">
+                                    <a href="https://kryxyo.carrd.co/" target="_blank" rel="noopener noreferrer">
                                         <img src="Media/Badges/Honeycomb/bite.gif" alt="Bite me <3">
                                     </a>
-                                    <a href="https://kryxyo.carrd.co/">
+                                    <a href="https://kryxyo.carrd.co/" target="_blank" rel="noopener noreferrer">
                                         <img src="Media/Badges/Honeycomb/flamechain.gif" alt="Captive Soul">
                                     </a>
-                                    <a href="https://kryxyo.carrd.co/">
+                                    <a href="https://kryxyo.carrd.co/" target="_blank" rel="noopener noreferrer">
                                         <img src="Media/Badges/Honeycomb/playstation.gif" alt="Good ole Playstation 1">
                                     </a>
                                     <img src="Media/Badges/Honeycomb/lain.gif" alt="I love Serial Experiments">
-                                    <a href="https://al-the-raven.neocities.org/">
+                                    <a href="https://al-the-raven.neocities.org/" target="_blank"
+                                        rel="noopener noreferrer">
                                         <img src="Media/Badges/Honeycomb/hexagon raven stamp.png" alt="Reven Lover">
                                     </a>
                                 </div>
                                 <div>
-                                    <p>Honeycomb layout by <a href="https://mooeena.neocities.org/honeycomb">Mooeena</a>
+                                    <p>Honeycomb layout by <a href="https://mooeena.neocities.org/honeycomb"
+                                            target="_blank" rel="noopener noreferrer">Mooeena</a>
                                     </p>
                                 </div>
                             </div>
@@ -1213,7 +1224,7 @@
                         <div class="separatorborder"></div>
                         <ul>
                             <li>
-                                <a href="https://www.twitch.tv/madsplooshie/">
+                                <a href="https://www.twitch.tv/madsplooshie/" target="_blank" rel="noopener noreferrer">
                                     <div class="svg-twitch"></div>
                                     &nbsp;Twitch
                                 </a>
@@ -1236,19 +1247,22 @@
                         <div class="separatorborder"></div>
                         <ul>
                             <li>
-                                <a href="https://bsky.app/profile/madsplooshie.neocities.org">
+                                <a href="https://bsky.app/profile/madsplooshie.neocities.org" target="_blank"
+                                    rel="noopener noreferrer">
                                     <div class="svg-bluesky"></div>
                                     &nbsp;BlueSky
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/madsplooshie/">
+                                <a href="https://www.instagram.com/madsplooshie/" target="_blank"
+                                    rel="noopener noreferrer">
                                     <div class="svg-instagram"></div>
                                     &nbsp;Instagram
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.youtube.com/@MadsplooshieVODs">
+                                <a href="https://www.youtube.com/@MadsplooshieVODs" target="_blank"
+                                    rel="noopener noreferrer">
                                     <div class="svg-youtube"></div>
                                     &nbsp;YouTube VODs
                                 </a>
@@ -1280,8 +1294,9 @@
     </div>
 
     <div class="footer">
-        &copy; 2025 Madsplooshie | <a href="mailto:madsplooshie@gmail.com">Contact Me</a>
+        &copy; <span id="footer-year"></span> Madsplooshie | <a href="mailto:madsplooshie@gmail.com">Contact Me</a>
     </div>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1340,7 +1355,7 @@
                         embedWrapper.className = 'latest-video-embed';
                         var iframe = document.createElement('iframe');
                         iframe.src = 'https://www.youtube.com/embed/' + videoId;
-                        iframe.title = video.title || 'Latest Video';
+                        iframe.title = video.title || 'Ultimo video de YouTube';
                         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
                         iframe.allowFullscreen = true;
                         embedWrapper.appendChild(iframe);
